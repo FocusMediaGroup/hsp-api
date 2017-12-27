@@ -40,7 +40,7 @@ class Reservations
   function __construct()
   {
     $username = 'api';
-    $password = 'api$';
+    $password = 'api$api';
     $this->apiClient = new bookedapiclient($username, $password);
     $this->timezone = new \DateTimeZone(YOURTIMEZONE);
     $this->now = new \DateTime();
