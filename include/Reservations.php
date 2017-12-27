@@ -37,6 +37,12 @@ class Reservations
    */
   private $now;
 
+  /**
+   *
+   * @var string
+   */
+  private $floorTitle;
+
   function __construct()
   {
     $username = 'api';
@@ -64,6 +70,16 @@ class Reservations
   function getNow()
   {
     return $this->now;
+  }
+
+  function getFloorTitle()
+  {
+    return $this->floorTitle;
+  }
+
+  function setFloorTitle($floorTitle)
+  {
+    $this->floorTitle = $floorTitle;
   }
 
   function getCurrentReservationByRoom($roomName)
@@ -118,6 +134,55 @@ class Reservations
           }
           $reservation['arrowDirection'] = $arrowDirection;
           $currentReservations[] = $reservation;
+        }
+      }
+    }
+    return $currentReservations;
+  }
+
+  function getCurrentReservationsByFloor($floor)
+  {
+    $currentReservations = null;
+    $this->fetchReservations();
+    if (is_array($this->reservations['reservations'])) {
+      foreach ($this->reservations['reservations'] as $reservation) {
+        $reservationStart = new \DateTime($reservation['startDate']);
+        $reservationEnd = new \DateTime($reservation['endDate']);
+        if (($this->now->getTimestamp() >= $reservationStart->getTimestamp()) &&
+            ($this->now->getTimestamp() < $reservationEnd->getTimestamp())) {
+          $resource = $this->getApiClient()->getResource(intval($reservation['resourceId']));
+          $arrowDirection = NULL;
+          $inFloor = FALSE;
+          foreach ($resource['customAttributes'] as $customAttribute) {
+            switch ($customAttribute['id']) {
+              case 3:
+                $this->setFloorTitle($customAttribute['value']);
+                break;
+              case 5:
+                if ($floor == $customAttribute['value']) {
+                  $inFloor = TRUE;
+                }
+                break;
+              case 9:
+                if (FALSE !== strpos($customAttribute['value'], 'left-arrow')) {
+                  $arrowDirection = 'left';
+                }
+                break;
+              case 10:
+                if (FALSE !== strpos($customAttribute['value'], 'right-arrow')) {
+                  $arrowDirection = 'right';
+                }
+                break;
+            }
+          }
+          if ($inFloor) {
+            $reservation['startDate'] = new \DateTime($reservation['startDate']);
+            $reservation['startDate']->setTimezone($this->timezone);
+            $reservation['endDate'] = new \DateTime($reservation['endDate']);
+            $reservation['endDate']->setTimezone($this->timezone);
+            $reservation['arrowDirection'] = $arrowDirection;
+            $currentReservations[] = $reservation;
+          }
         }
       }
     }

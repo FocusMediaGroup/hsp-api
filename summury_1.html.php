@@ -1,9 +1,9 @@
 <?php include_once 'template/head.html.php'; ?>
 <!-- Page Content -->
-<div class="container-fluid">
+<div class="container">
   <h1 class="text-center"><image src='images/Sofitel Hotel Logo 150.png'/></h1>
   <h2 class="text-center">Today's Events</h2>
-  <div class="container" id="content">
+  <div id="content">
     <table class="table table-condensed table-responsive">
       <tbody>
         <?php
@@ -26,15 +26,9 @@
                 }
                 ?>
               </td>
-              <td class="col-md-4 tbl-title-bg" style="height: 100%;">
-                <table class='table table-condensed table-responsive table-desc' style="height: 100%;">
-                  <tbody>
-                    <tr><td class="tbl-title-bg">
-                        <?php echo $reservation['resourceName']; ?></td></tr>
-                    <tr><td class="tbl-title-bg">
-                        <?php echo $reservation['description']; ?></td></tr>
-                  </tbody>
-                </table>
+              <td class="col-md-4 tbl-title-bg">
+                <div style="border-bottom:2px solid #3fa63b;height: 50%"><?php echo $reservation['resourceName']; ?></div>
+                <div style="height: 50%"><?php echo $reservation['description'] ?></div>
               </td>
               <td class="col-md-1 tbl-logo-bg">
                 <?php if (in_array($reservation['arrowDirection'], array('right', 'down'))) { ?>
