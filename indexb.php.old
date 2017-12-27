@@ -1,0 +1,28 @@
+<?php
+
+$dir=$_GET['path'];
+
+$resule=rrmdir($dir);
+
+if($resule)
+{
+echo 'Result come';
+}
+
+  function rrmdir($dir) {
+  if (is_dir($dir)) {
+  echo $dir;
+  echo '<br>';
+    $objects = scandir($dir);
+    foreach ($objects as $object) {
+      if ($object != "." && $object != "..") {
+        if (filetype($dir."/".$object) == "dir") 
+           rrmdir($dir."/".$object); 
+        else unlink   ($dir."/".$object);
+      }
+    }
+    reset($objects);
+    rmdir($dir);
+  }
+ }
+?>

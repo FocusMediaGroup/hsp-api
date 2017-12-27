@@ -1,0 +1,222 @@
+/*custom css
+Author : Raj Ariyan*/
+body, h4, h2, p{
+  margin: 0;
+  padding: 0;
+  font-family: tahoma;
+  color: #fff;
+}
+body{
+  background-image: url(/api/images/Wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-color: #48a743;
+  background-size: cover;
+}
+.wrapper{
+
+  margin: 0 auto;
+}
+.wrapper
+{
+  position: fixed !important;
+  height: 100% !important;
+  width: 100%;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 60px; /* Margin bottom by footer height */
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+
+.bar{
+  background: #5F2966;
+  height: 40px;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 30px;
+}
+.pur_ico{
+  text-transform: uppercase;
+  color: #5F2966;
+}
+.pur_tex{
+  text-transform: uppercase;
+  color: #5F2966;
+}
+.gol_tex{
+  color: #A78B2F;
+  text-transform: uppercase;
+}
+.icon_item_one{
+  margin-bottom: 30px;
+}
+.icon_item_two, .icon_item_three, .icon_item_four, .icon_item_five, .icon_item_six, .icon_item_seven{
+  margin-bottom: 30px;
+}
+.text_item_one{
+  margin-top: 15px;
+  margin-bottom: 70px;
+}
+.text_item_two, .text_item_three, .text_item_four,.text_item_five,.text_item_six, .text_item_seven {
+  margin-bottom: 60px;
+}
+.glyp_one{
+  margin-bottom: 50px;
+  margin-top: 5px;	
+}
+.glyp_two, .glyp_three, .glyp_four, .glyp_five,.glyp_six, .glyp_seven{
+  margin-bottom: 42px;
+
+}
+.one{
+  width: 10%;
+  float: left;
+}
+.two{
+  width: 30%;
+  float: left;
+}
+.three{
+  width: 15%;
+  float: left;
+}
+.four{
+  width: 30%;
+  float: left;
+  border-right: 1px solid #A78B2F; 
+  padding-bottom: 25px;
+}
+.five{
+  width: 15%;
+  float: left;
+}
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+/*responsive media queries*/
+
+@media only screen and (min-device-width : 380px) and (max-device-width : 440px) {
+  .pur_ico {
+    font-size: 22px;
+  }
+  .pur_tex {
+    font-size: 12px;
+  }
+  .gol_tex {
+    font-size: 13px;
+  }
+  .text_item_two, .text_item_three, .text_item_four,.text_item_five,.text_item_six, .text_item_seven {
+    margin-bottom: 60px;
+  }
+  .text_item_one{
+    margin-top: 10px;
+    margin-bottom: 52px;
+  }
+  .glyphicon {
+    font-size: 25px;
+
+  }
+}
+@media only screen and (min-device-width : 310px) and (max-device-width : 379px) {
+  .pur_ico {
+    font-size: 19px;
+  }
+  .pur_tex {
+    font-size: 10px;
+  }
+  .gol_tex {
+    font-size: 11px;
+  }
+  .text_item_two, .text_item_three, .text_item_four,.text_item_five,.text_item_six, .text_item_seven {
+    margin-bottom: 55px;
+    padding-left: 3%;
+  }
+  .text_item_one{
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .glyphicon {
+    font-size: 20px;
+
+  }
+}
+
+@media only screen and (min-device-width : 280px) and (max-device-width : 415px) {
+
+  .wrapper
+  {
+    position: fixed !important;
+    height: 100% !important;
+  }
+}
+@media only screen and (min-device-width : 280px) and (max-device-width : 309px) {
+
+  .pur_ico {
+    font-size: 17px;
+  }
+  .pur_tex {
+    font-size: 9px;
+  }
+  .gol_tex {
+    font-size: 10px;
+  }
+  .text_item_two, .text_item_three, .text_item_four,.text_item_five,.text_item_six, .text_item_seven {
+    margin-bottom: 55px;
+    padding-left: 2%;
+
+  }
+  .text_item_one{
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .glyphicon {
+    font-size: 20px;
+
+  }
+}
+.gold {
+  color: #a17f22;
+}
+.text-white {
+  color: #fff;
+}
+.black {
+  color: #000;
+}h2
+.title {
+  font-size: 3em;
+}
+.sub-title {
+  font-size: 1em;
+}
+.gradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a17f22+0,ffffff+50,a17f22+100 */
+  background: #a17f22; /* Old browsers */
+  background: -moz-linear-gradient(left,  #a17f22 0%, #ffffff 50%, #a17f22 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  #a17f22 0%,#ffffff 50%,#a17f22 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  #a17f22 0%,#ffffff 50%,#a17f22 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a17f22', endColorstr='#a17f22',GradientType=1 ); /* IE6-9 */
+
+}
+
+.pad10{
+  padding: 10px;
+}

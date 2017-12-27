@@ -1,0 +1,49 @@
+/*
+The following content was designed & implemented under AlexSeif.com
+*/
+/* 
+    Created on : Dec 17, 2017, 10:44:09 AM
+    Author     : Alex Seif <me@alexseif.com>
+*/
+
+.tbl-title-bg{background-color:#026900;}
+.tbl-logo-bg{background-color:#666666;}
+.glyphicon{font-size: 3em;}
+
+.table tbody tr td,
+.table tbody tr th,
+.table>tfoot tr td,
+.table tfoot tr th,
+.table thead tr td,
+.table thead tr th {
+  padding: 0px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom : 2px solid #3fa63b;
+}
+
+.table.table-desc tbody tr:first-child td{
+  border-bottom : 2px solid #3fa63b;
+
+}
+.table.table-desc tbody tr td{
+  padding: 0px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom : none;
+}
+.table > tbody > tr > td {
+  vertical-align: middle;
+  text-align:center;
+  min-height:60px;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 2px solid #3fa63b;
+  margin: 1em 0;
+  padding: 0; 
+}

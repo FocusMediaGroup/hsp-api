@@ -1,0 +1,15 @@
+<?php
+ session_start();
+ include('include/bookedapi.php');
+ 
+ 
+            $username = 'api';
+            $password = 'api$';
+            $bookedapiclient = new bookedapiclient($username, $password);
+            $bookedapiclient-> authenticate(true);
+
+            //the next call will get all reservations for the current user or all of them if that user is the admin
+            $getResource = $bookedapiclient->getResource();
+			echo '<pre>';
+            //print the result to the screen
+            print_r($getResource); ?>

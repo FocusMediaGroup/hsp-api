@@ -1,0 +1,97 @@
+/*custom css
+Author : Raj Ariyan*/
+body, h4, h2, p{
+  margin: 0;
+  padding: 0;
+  font-family: tahoma;
+}
+.wrapper{
+  background: url('../images/bg_body.gif');
+  padding-bottom: 10px;
+}
+.wrapper
+{
+  position: fixed !important;
+  height: 100% !important;
+  width: 100%;
+}
+
+.glyphicon {
+  font-size: 35px;
+  color: #A78B2F;
+}
+.cont{
+  overflow: hidden;
+  height: auto;
+  background: #5C4838;
+  border-bottom: 5px solid #352924; 
+
+}
+
+.left_one{
+  float:left;
+  height: auto;
+  width: 30%;
+  padding-left: 3%;
+}
+.middle_one{
+  overflow: hidden;
+  float:left;
+  height: auto;
+  width: 45%;
+  color: #fff;
+  padding-top: 30px;
+}
+.right_one{
+  width: 20%;
+  overflow: hidden;
+  height: auto;
+}
+.footer img{
+  margin-top: 150px;
+}
+
+
+@media only screen and (min-device-width : 380px) and (max-device-width : 600px)  {
+  .left_one{
+    padding-left: 1%;
+  }
+  .left_one img{
+    width: 50%;
+  }
+  .right_one img{
+    width: 70%;
+  }
+  .middle_one{
+    padding-top: 10px;
+  }
+}
+@media only screen and (min-device-width : 280px) and (max-device-width : 415px) {
+
+  .wrapper
+  {
+    position: fixed !important;
+    height: 100% !important;
+  }
+}
+@media only screen and (min-device-width : 280px) and (max-device-width : 379px){
+  .left_one{
+    padding-left: 1%;
+  }
+  .left_one img{
+    width: 50%;
+  }
+  .right_one img{
+    width: 70%;
+  }
+  .middle_one{
+    padding-top: 2px;
+
+  }
+  .middle_one h4{
+    font-size: 14px;
+  }
+  .middle_one p{
+    font-size: 13px;
+  }
+}
