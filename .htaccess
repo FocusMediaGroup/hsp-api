@@ -1,5 +1,5 @@
-php_value display_errors on 
-php_value error_reporting 2
+php_value display_errors off
+#php_value error_reporting 2
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
