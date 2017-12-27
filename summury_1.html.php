@@ -4,7 +4,7 @@
   <h1 class="text-center"><image src='images/Sofitel Hotel Logo 150.png'/></h1>
   <h2 class="text-center">Today's Events</h2>
   <div class="container" id="content">
-    <table class="table">
+    <table class="table table-condensed table-responsive">
       <tbody>
         <?php
         if (is_array($currentReservations)) {
@@ -26,8 +26,8 @@
                 }
                 ?>
               </td>
-              <td class="col-md-4" style="height: 100%;">
-                <table class='table table-desc' style="height: 100%;">
+              <td class="col-md-4 tbl-title-bg" style="height: 100%;">
+                <table class='table table-condensed table-responsive table-desc' style="height: 100%;">
                   <tbody>
                     <tr><td class="tbl-title-bg">
                         <?php echo $reservation['resourceName']; ?></td></tr>
