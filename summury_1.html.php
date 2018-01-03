@@ -1,9 +1,8 @@
 <?php include_once 'template/head.html.php'; ?>
 <!-- Page Content -->
 <div class="container">
-  <h1 class="text-center"><image src='images/Sofitel Hotel Logo 150.png'/></h1>
+  <h1 class="text-center"><img src='images/Sofitel Hotel Logo 150.png'/></h1>
   <h2 class="text-center">Today's Events</h2>
-  <div id="content">
     <table class="table table-condensed table-responsive">
       <tbody>
         <?php
@@ -17,11 +16,11 @@
                 <?php } ?>
               </td>
               <td class="col-md-4 tbl-title-bg">
-                <?php echo $reservation['title']; ?>
+                <strong><?php echo $reservation['title']; ?></strong>
               </td>
               <td class="col-md-1 tbl-logo-bg">
                 <?php if (file_exists('./images/logos/' . $reservation['title'] . '.png')) { ?>
-                  <image class='img-responsive' src='images/logos/<?php echo $reservation['title'] ?>.png'/>
+                  <img class='text-center' src='images/logos/<?php echo $reservation['title'] ?>.png'/>
                   <?php
                 }
                 ?>
@@ -43,7 +42,6 @@
         ?>
       </tbody>
     </table>
-  </div>    
 </div>
 <!-- /.container-fluid -->
 <?php include_once 'template/footer.html.php'; ?>

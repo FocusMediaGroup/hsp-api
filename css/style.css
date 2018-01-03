@@ -220,3 +220,27 @@ body {
 .pad10{
   padding: 10px;
 }
+
+.table tbody tr td,
+.table tbody tr th,
+.table>tfoot tr td,
+.table tfoot tr th,
+.table thead tr td,
+.table thead tr th {
+  padding: 0px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom : 2px solid #3fa63b;
+}
+
+.table > tbody > tr > td {
+  height: 50px;
+  vertical-align: middle;
+  text-align:center;
+}
+
+.tbl-title-bg{background-color:#026900;font-weight: bold;}
+.tbl-logo-bg{background-color:#666666;}
+.tbl-logo-bg img{height: 50px; width: auto;}
+.glyphicon{font-size: 3em;}

@@ -1,7 +1,7 @@
 <?php include_once 'template/head.html.php'; ?>
 <!-- Page Content -->
 <div class="container">
-  <h1 class="title text-center"><image src='images/Sofitel Hotel Logo 150.png'></h1>
+  <h1 class="title text-center"><img src='images/Sofitel Hotel Logo 150.png'></h1>
   <h2 class="text-center">Today's Event - <?php echo $floor_title; ?></h2>
   <table class="table">
     <tbody>
@@ -22,7 +22,7 @@
               <?php
               if (file_exists('./images/logos/' . $reservation['title'] . '.png')) {
                 ?>
-                <image class='img-responsive' src='images/logos/<?php echo $reservation['title'] . '.png'; ?>' />
+                <img class='text-center' src='images/logos/<?php echo $reservation['title'] . '.png'; ?>' />
                 <?php
               }
               ?>
