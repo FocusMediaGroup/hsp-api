@@ -24,6 +24,9 @@
                   <?php if (!in_array($reservation['arrowDirection'], array('right', 'down'))) { ?>
                     <span class="glyphicon glyphicon-circle-arrow-<?php echo $reservation['arrowDirection']; ?>"></span>
                   <?php } ?>
+                  <?php if (in_array($reservation['arrowDirection'], array('right', 'down'))) { ?>
+                    <span class="glyphicon glyphicon-circle-arrow-<?php echo $reservation['arrowDirection']; ?>"></span>
+                  <?php } ?>
                 </td>
                 <td class="col-md-4 tbl-title-bg">
                   <strong><?php echo $reservation['title']; ?></strong>
@@ -40,9 +43,6 @@
                   <div style="height: 50%"><?php echo $reservation['description'] ?></div>
                 </td>
                 <td class="col-md-1 tbl-logo-bg">
-                  <?php if (in_array($reservation['arrowDirection'], array('right', 'down'))) { ?>
-                    <span class="glyphicon glyphicon-circle-arrow-<?php echo $reservation['arrowDirection']; ?>"></span>
-                  <?php } ?>
                 </td>
 
               </tr>

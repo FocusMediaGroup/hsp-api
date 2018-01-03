@@ -6,15 +6,8 @@
   </div>
 </header>
 <div class="container-fluid" id="content">
-  <?php
-  if (is_array($currentReservations)) {
-    $height = floor(65 / count($currentReservations));
+  <?php if (is_array($currentReservations)) {
     ?>
-    <style>
-      .table > tbody > tr > td {
-        height: <?php echo $height; ?>vh;
-      }
-    </style>
     <div class="mid-section">
       <h2 class="text-center">Today's Event:<?php echo $currentReservations['0']['title']; ?></h2>
       <div class="text-center pad10">
