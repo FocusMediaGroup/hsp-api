@@ -156,7 +156,7 @@ class Reservations
           foreach ($resource['customAttributes'] as $customAttribute) {
             switch ($customAttribute['id']) {
               case 3:
-                $this->setFloorTitle($customAttribute['value']);
+                $tmpFloorTitle = $customAttribute['value'];
                 break;
               case 5:
                 if ($floor == $customAttribute['value']) {
@@ -176,6 +176,7 @@ class Reservations
             }
           }
           if ($inFloor) {
+            $this->setFloorTitle($tmpFloorTitle);
             $reservation['startDate'] = new \DateTime($reservation['startDate']);
             $reservation['startDate']->setTimezone($this->timezone);
             $reservation['endDate'] = new \DateTime($reservation['endDate']);
