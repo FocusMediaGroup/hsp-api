@@ -11,6 +11,7 @@ body{
   background-repeat: no-repeat;
   background-color: #48a743;
   background-size: cover;
+
 }
 .wrapper{
 
@@ -234,13 +235,45 @@ body {
   border-bottom : 2px solid #3fa63b;
 }
 
-.table > tbody > tr > td {
-  height: 50px;
-  vertical-align: middle;
-  text-align:center;
-}
+
 
 .tbl-title-bg{background-color:#026900;font-weight: bold;}
 .tbl-logo-bg{background-color:#666666;}
 .tbl-logo-bg img{height: 50px; width: auto;}
 .glyphicon{font-size: 3em;}
+
+.table-holder {
+  position: absolute;
+  left: 5vw;
+  top: 20vh;
+  height: 80vh;
+  width: 90vw;
+  display: table;
+}
+.table-holder .table-div{
+  display: table-cell;
+  vertical-align: middle;
+  text-align:center;
+}
+
+.table > tbody > tr > td {
+  min-height: 8vh;
+  vertical-align: middle;
+  text-align:center;
+}
+
+
+@media only screen and (min-device-height : 1024px) {
+  .table-holder {
+    top: 15vh;
+    height: 85vh;
+  }
+}
+
+
+
+
+
+.table > tbody > tr > td div {
+  padding: 0 10px;
+}
