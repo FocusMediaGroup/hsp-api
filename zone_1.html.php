@@ -9,7 +9,7 @@
     ?>
     <style>
       .table > tbody > tr > td {
-        height: <?php echo $height; ?>vh;
+        height: <?php echo (15 > $height) ? $height: 15; ?>vh;
       }
     </style>
     <h2 class="text-center">Today's Event - <?php echo $floor_title; ?></h2>
