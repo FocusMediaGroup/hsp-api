@@ -262,7 +262,14 @@ body {
   text-align:center;
 }
 
-
+.mid-section {
+  display: table-cell;
+  vertical-align: middle;
+  height: 60vh;
+  text-align: center;
+  width: 100vw;
+}
+}
 @media only screen and (min-device-height : 1024px) {
   .table-holder {
     top: 15vh;

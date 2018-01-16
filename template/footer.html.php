@@ -1,6 +1,6 @@
 <footer class="footer">
   <div class="container-fluid">
-    <h5 class=" pull-left"><?php echo date('h:i'); ?></h5>
+    <h5 class=" pull-left"><?php echo date('g:i'); ?></h5>
     <h5 class=" pull-right"><?php echo date("l, jS F Y"); ?></h5>
   </div>
 </footer>
