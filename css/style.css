@@ -6,6 +6,7 @@ body, h4, h2, p{
   font-family: tahoma;
   color: #fff;
 }
+
 body{
   background-image: url(/api/images/Wallpaper.jpg);
   background-repeat: no-repeat;
@@ -256,8 +257,7 @@ body {
   text-align:center;
 }
 
-.table > tbody > tr > td {
-  min-height: 8vh;
+.table tbody tr td {
   vertical-align: middle;
   text-align:center;
 }
@@ -275,5 +275,5 @@ body {
 
 
 .table > tbody > tr > td div {
-  padding: 6% 10px;
+  padding: 5px 10px;
 }
