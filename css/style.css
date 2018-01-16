@@ -269,7 +269,11 @@ body {
   text-align: center;
   width: 100vw;
 }
+
+.mid-section h2 {
+  margin-bottom: 20px;
 }
+
 @media only screen and (min-device-height : 1024px) {
   .table-holder {
     top: 15vh;
