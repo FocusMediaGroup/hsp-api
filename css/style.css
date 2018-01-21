@@ -21,6 +21,9 @@ body {
   width: 100%;
 }
 
+h5, .h5 {
+  font-size: 2em;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
