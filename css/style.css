@@ -1,25 +1,21 @@
 /*custom css
 Author : Raj Ariyan*/
-body, h4, h2, p{
+body, h4, h2, p {
   margin: 0;
   padding: 0;
   font-family: tahoma;
   color: #fff;
 }
 
-body{
+body {
   background-image: url(/api/images/Wallpaper.jpg);
   background-repeat: no-repeat;
   background-color: #48a743;
   background-size: cover;
-
 }
-.wrapper{
 
+.wrapper {
   margin: 0 auto;
-}
-.wrapper
-{
   position: fixed !important;
   height: 100% !important;
   width: 100%;
@@ -246,8 +242,8 @@ body {
 .table-holder {
   position: absolute;
   left: 5vw;
-  top: 20vh;
-  height: 80vh;
+  top: 200px;
+  height: calc(100vh - 260px);
   width: 90vw;
   display: table;
 }

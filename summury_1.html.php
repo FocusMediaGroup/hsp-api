@@ -1,17 +1,22 @@
 <?php include_once 'template/head.html.php'; ?>
-<!-- Page Content -->
-<div class="container">
-  <h1 class="text-center"><img src='images/Sofitel Hotel Logo 150.png'/></h1>
+<header>
+  <div class="container">
+    <h1 class="text-center"><img src='images/Sofitel Hotel Logo 150.png'/></h1>
+    <h2 class="text-center">Today's Events</h2>
+  </div>
+</header>
+<div class="container-fluid">
   <?php
   if (is_array($currentReservations)) {
     $height = floor(65 / count($currentReservations));
     ?>
     <style>
       .table > tbody > tr > td {
-        height: <?php echo (15 > $height) ? $height: 15; ?>vh;
+        height: <?php echo (15 > $height) ? $height : 15; ?>vh;
       }
     </style>
-    <h2 class="text-center">Today's Events</h2>
+    <!-- Page Content -->
+
     <div class="table-holder">
       <div class="table-div">
         <table class="table">
