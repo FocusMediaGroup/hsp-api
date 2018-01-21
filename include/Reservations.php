@@ -112,6 +112,7 @@ class Reservations
   function getCurrentReservations()
   {
     $currentReservations = null;
+    $reservationByFloorNo = null;
     $this->fetchReservations();
     if (is_array($this->reservations['reservations'])) {
       foreach ($this->reservations['reservations'] as $reservation) {
@@ -127,12 +128,27 @@ class Reservations
 
           $resource = $this->getApiClient()->getResource(intval($reservation['resourceId']));
           $arrowDirection = NULL;
+
           foreach ($resource['customAttributes'] as $customAttribute) {
-            if ('22' == $customAttribute['id']) {
-              $arrowDirection = $customAttribute['value'];
+            switch ($customAttribute['id']) {
+              case 3:
+                $reservation['floorTitle'] = $customAttribute['value'];
+                break;
+              case 5:
+                $reservation['floorNo'] = $customAttribute['value'];
+                break;
+              case 22:
+                $reservation['arrowDirection'] = $customAttribute['value'];
+                break;
             }
           }
-          $reservation['arrowDirection'] = $arrowDirection;
+          $reservationByFloorNo[$reservation['floorNo']][] = $reservation;
+//          $currentReservations[] = $reservation;
+        }
+      }
+      krsort($reservationByFloorNo);
+      foreach ($reservationByFloorNo as $floorNo => $reservations) {
+        foreach ($reservations as $reservation) {
           $currentReservations[] = $reservation;
         }
       }
