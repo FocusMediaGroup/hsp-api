@@ -10,7 +10,19 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script>
-  $(".fit-text").fitText(2.4);
+<?php
+if ($height > 15) {
+  ?>
+    $(".fit-text").fitText(1);
+
+  <?php
+} else {
+  ?>
+    $(".fit-text").fitText(2.4);
+  <?php
+}
+?>
+  $(".footer h5").fitText(1.5);
 </script>
 </body>
 </html>

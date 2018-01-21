@@ -1,9 +1,9 @@
 /*custom css
-Author : Raj Ariyan*/
+Author : Alex Seif*/
 body, h4, h2, p {
   margin: 0;
   padding: 0;
-  font-family: tahoma;
+/*  font-family: tahoma;*/
   color: #fff;
 }
 
@@ -290,4 +290,13 @@ body {
 .split-cell {
   border-bottom-width: 1px !important;
   border-bottom-style: dashed !important;
+}
+
+.footer h5 {
+  width: 25%;
+  white-space: nowrap;
+  text-align: right;
+}
+.footer h5:first-child {
+  text-align: left;
 }

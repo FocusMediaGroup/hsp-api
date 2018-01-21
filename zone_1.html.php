@@ -1,18 +1,20 @@
 <?php include_once 'template/head.html.php'; ?>
+<header>
+  <h1 class="title text-center"><img src='images/Sofitel Hotel Logo 150.png'></h1>
+  <h2 class="text-center text-uppercase">Today's Event - <?php echo $floor_title; ?></h2>
+</header>
 <!-- Page Content -->
 <div class="container">
-  <h1 class="title text-center"><img src='images/Sofitel Hotel Logo 150.png'></h1>
 
   <?php
   if (is_array($currentReservations)) {
-    $height = floor(65 / count($currentReservations));
+    $height = floor(65 / count($currentReservations))/2;
     ?>
     <style>
       .table > tbody > tr > td {
-        height: <?php echo (15 > $height) ? $height: 15; ?>vh;
+        height: <?php echo (15 > $height) ? $height : 15; ?>vh;
       }
     </style>
-    <h2 class="text-center">Today's Event - <?php echo $floor_title; ?></h2>
     <div class="table-holder">
       <div class="table-div">
         <table class="table">
@@ -21,15 +23,15 @@
             foreach ($currentReservations as $reservation) {
               ?>
               <tr> 
-                <td class="col-md-1 tbl-logo-bg"> 
+                <td class="col-md-1 tbl-logo-bg" rowspan="2"> 
                   <?php if ("left" == $reservation['arrowDirection']) { ?>
                     <span class="glyphicon glyphicon-circle-arrow-left"></span>
                   <?php } ?>
                 </td>
-                <td class="col-md-4 tbl-title-bg">
+                <td class="col-md-4 tbl-title-bg fit-text" rowspan="2">
                   <?php echo $reservation['title']; ?>
                 </td>
-                <td class="col-md-1 tbl-logo-bg">
+                <td class="col-md-1 tbl-logo-bg" rowspan="2">
                   <?php
                   if (file_exists('./images/logos/' . $reservation['title'] . '.png')) {
                     ?>
@@ -38,14 +40,19 @@
                   }
                   ?>
                 </td>
-                <td class="col-md-4 tbl-title-bg">
-                  <div style="border-bottom:2px solid #3fa63b;height: 50%"><?php echo $reservation['description']; ?></div>
-                  <div style="height: 50%"><?php echo $reservation['resourceName']; ?></div>
+                <td class="col-md-4 tbl-title-bg fit-text split-cell">
+                  <?php echo $reservation['description']; ?>
                 </td>
-                <td class="col-md-1 tbl-logo-bg"> 
+                <td class="col-md-1 tbl-logo-bg" rowspan="2"> 
                   <?php if ("right" == $reservation['arrowDirection']) { ?>
                     <span class="glyphicon glyphicon-circle-arrow-right"></span>
                   <?php } ?>
+                </td>
+              </tr>
+              <tr>
+                <td class="fit-text tbl-title-md text-uppercase">
+                  <!--Room name-->
+                  <?php echo $reservation['resourceName']; ?>
                 </td>
               </tr>
               <?php
