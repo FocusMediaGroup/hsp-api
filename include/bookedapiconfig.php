@@ -69,3 +69,5 @@ const SELECT_LIST = 3;
 const MULTI_LINE_TEXT = 2;
 const CHECK_BOX = 4;
 const DEBUG = FALSE;
+const DATE_FORMAT = 'l, jS F Y';
+const TIME_FORMAT = 'g:i a';

@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="container-fluid">
-    <h5 class=" pull-left"><?php echo date('g:i a'); ?></h5>
-    <h5 class=" pull-right"><?php echo date("l, jS F Y"); ?></h5>
+    <h5 class=" pull-left"><?php echo date(TIME_FORMAT); ?></h5>
+    <h5 class=" pull-right"><?php echo date(DATE_FORMAT); ?></h5>
   </div>
 </footer>
 <!-- jQuery Version 1.11.1 -->
