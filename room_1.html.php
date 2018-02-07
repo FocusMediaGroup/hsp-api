@@ -9,7 +9,7 @@
   <?php if (is_array($currentReservations)) {
     ?>
     <div class="mid-section">
-      <h2 class="text-center fit-text">Today's Event : <?php echo $currentReservations['0']['title']; ?></h2>
+      <h2 class="text-center fit-text"><?php echo $currentReservations['0']['title']; ?></h2>
       <div class="text-center pad10">
         <?php
         if (file_exists('./images/logos/' . $currentReservations['0']['title'] . '.png')) {
