@@ -10,6 +10,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
+    <link href="assets/plugins/jquery.virtual_keyboard/jquery.virtual_keyboard.css" rel="stylesheet" type="text/css"/>
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
 

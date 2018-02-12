@@ -3,7 +3,7 @@ Author : Alex Seif*/
 body, h4, h2, p {
   margin: 0;
   padding: 0;
-/*  font-family: tahoma;*/
+  /*  font-family: tahoma;*/
   /*color: #fff;*/
 }
 
@@ -38,7 +38,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 60px; /* Set the fixed height of the footer here */
-  line-height: 60px; /* Vertically center the text there */
+  /*line-height: 60px;  Vertically center the text there */
 }
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -106,10 +106,6 @@ body {
 .five{
   width: 15%;
   float: left;
-}
-.row{
-  margin-left: 0px;
-  margin-right: 0px;
 }
 
 /*responsive media queries*/
@@ -297,7 +293,7 @@ body {
   white-space: nowrap;
   text-align: right;
 }
-.footer h5:first-child {
+.footer h5.time {
   text-align: left;
 }
 
@@ -317,4 +313,41 @@ hr {
   border-top: 2px solid #3fa63b;
   margin: 1em 0;
   padding: 0; 
+}
+
+/** Search **/
+#search{
+  position: fixed;
+  bottom: 230px;
+}
+#custom-search-input{
+  padding: 3px;
+  border: solid 1px #E4E4E4;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+#custom-search-input input{
+  border: 0;
+  box-shadow: none;
+}
+
+#custom-search-input button{
+  margin: 2px 0 0 0;
+  background: none;
+  box-shadow: none;
+  border: 0;
+  color: #666666;
+  padding: 0 8px 0 10px;
+  border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+  border: 0;
+  box-shadow: none;
+  border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+  font-size: 23px;
 }
