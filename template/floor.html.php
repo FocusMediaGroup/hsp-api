@@ -1,14 +1,13 @@
-<?php include_once 'template/head.html.php'; ?>
+<?php include_once 'head.html.php'; ?>
 <header>
-  <h1 class="title text-center"><img src='images/Sofitel Hotel Logo 150.png'></h1>
-  <h2 class="text-center text-uppercase">Today's Event - <?php echo $floor_title; ?></h2>
+  <h1 class="title text-center"><img src='<?php echo $config['logo']; ?>'></h1>
+  <h2 class="text-center text-uppercase">Today's Event - <?php echo $floorTitle; ?></h2>
 </header>
 <!-- Page Content -->
 <div class="container">
-
   <?php
-  if (is_array($currentReservations)) {
-    $height = floor(65 / count($currentReservations))/2;
+  if (is_array($reservations)) {
+    $height = floor(65 / count($reservations)) / 2;
     ?>
     <style>
       .table > tbody > tr > td {
@@ -20,7 +19,7 @@
         <table class="table">
           <tbody>
             <?php
-            foreach ($currentReservations as $reservation) {
+            foreach ($reservations as $reservation) {
               ?>
               <tr> 
                 <td class="col-md-1 tbl-logo-bg" rowspan="2"> 
@@ -72,8 +71,6 @@
     include_once 'ad.html.php';
   }
   ?>
-
 </div>
-
 <!-- /.container -->
-<?php include_once 'template/footer.html.php'; ?>
+<?php include_once 'footer.html.php'; ?>

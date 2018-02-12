@@ -15,7 +15,6 @@
 //Change these to match your server and time zone.
 const YOURTIMEZONE = 'Africa/Cairo';
 const BOOKEDWEBSERVICESURL = 'http://localhost/hsp/Web/Services/index.php';
-//const BOOKEDWEBSERVICESURL = 'http://hsp.local/hsp/Web/Services/index.php';
 // Endpoints
 const AUTHENTICATE = '/Authentication/Authenticate';
 const GETRESOURCES = '/Resources/';

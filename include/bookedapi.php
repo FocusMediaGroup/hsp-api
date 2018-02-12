@@ -13,7 +13,7 @@
  * 
  *   
  */
-require_once 'bookedapiconfig.php';
+require_once 'config/bookedapiconfig.php';
 
 class bookedAPIclient
 {

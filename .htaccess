@@ -1,5 +1,7 @@
-php_value display_errors off
-#php_value error_reporting 2
-RewriteEngine On
+#php_value display_errors off
+php_value error_reporting 2
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+#RewriteRule ^([^/]*)(.*)$ index.php?path=$1&arg=$2
