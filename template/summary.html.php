@@ -1,11 +1,11 @@
 <?php include_once 'head.html.php'; ?>
 <header>
   <div class="container">
-    <h1 class="text-center"><img src='<?php echo $config['logo']; ?>'/></h1>
+    <h1><img src='<?php echo $config['logo']; ?>' height="150px"/></h1>
     <h2 class="text-center">Today's Events</h2>
   </div>
 </header>
-<div class="container-fluid">
+<div class="container">
   <?php
   if (is_array($reservations)) {
     $height = floor(65 / count($reservations)) / 2;
@@ -16,53 +16,43 @@
       }
     </style>
     <!-- Page Content -->
-    <div class="table-holder">
-      <div class="table-div">
-        <table class="table">
-          <tbody>
-            <?php
-            foreach ($reservations as $reservation) {
-              ?>
-              <tr>
-                <td class="col-md-1 tbl-logo-bg" rowspan="2"> 
-                  <span class="glyphicon glyphicon-circle-arrow-<?php echo $reservation['arrowDirection']; ?>"></span>
-                </td>
-                <td class="col-md-4 tbl-title-bg text-uppercase fit-text split-cell">
-                  <strong><?php echo $reservation['title']; ?></strong>
-                </td>
-                <td class="col-md-1 tbl-logo-bg fit-text" rowspan="2">
-                  <?php if (file_exists('./images/logos/' . $reservation['title'] . '.png')) { ?>
-                    <img class='text-center' src='images/logos/<?php echo $reservation['title'] ?>.png'/>
-                    <?php
-                  }
-                  ?>
-                </td>
-                <td class="col-md-2 tbl-title-bg fit-text split-cell">
-                  <!-- Room name -->
-                  <!--<div style="border-bottom:2px solid #3fa63b;height: 50%" class="text-uppercase">-->
-                  <?php echo $reservation['resourceName']; ?>
-                  <!--</div>-->
-                  <!--<div style="height: 50%"></div>-->
-                </td>
-                <td class="col-md-1 tbl-logo-bg" rowspan="2">
-                </td>
-              </tr>
-              <tr>
-                <td class="col-md-4 tbl-title-md fit-text">
-                  <!-- Event name -->
-                  <?php echo $reservation['description']; ?>
-                </td>
-                <td class="col-md-4 tbl-title-md fit-text">
-                  <!-- Floor Title -->
-                  <?php echo $reservation['floorTitle']; ?>
-                </td>
-              </tr>
-            <?php }
+    <ul class="list-group list-inline row">
+      <?php
+      foreach ($reservations as $reservation) {
+        ?>
+        <li class="list-group-item list-group-item-info col-md-4">
+          <div class="row">
+            <?php if (file_exists('./images/logos/' . $reservation['title'] . '.png')) { ?>
+              <div class="col-md-3">
+                <img class='img-thumbnail img-responsive' src='images/logos/<?php echo $reservation['title'] ?>.png'/>
+              </div>
+              <?php
+            }
             ?>
-          </tbody>
-        </table>
-      </div>
-    </div>
+            <div class="col-md-8">
+              <strong><?php echo $reservation['title']; ?></strong>
+            </div>
+            <div class="col-md-8">
+              <!-- Room name -->
+              <!--<div style="border-bottom:2px solid #3fa63b;height: 50%" class="text-uppercase">-->
+              <?php echo $reservation['resourceName']; ?>
+            </div>
+            <div class="col-md-8">
+              <!-- Event name -->
+              <?php echo $reservation['description']; ?>
+            </div>
+            <div class="col-md-8">
+              <!-- Floor Title -->
+              <?php echo $reservation['floorTitle']; ?>
+            </div>
+            <div class="col-md-1">
+              <span class="glyphicon glyphicon-circle-arrow-<?php echo $reservation['arrowDirection']; ?>"></span>
+            </div>
+          </div>
+        </li>
+      <?php }
+      ?>
+    </ul>
     <?php
   } else {
     include_once 'ad.html.php';

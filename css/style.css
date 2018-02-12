@@ -4,14 +4,14 @@ body, h4, h2, p {
   margin: 0;
   padding: 0;
 /*  font-family: tahoma;*/
-  color: #fff;
+  /*color: #fff;*/
 }
 
 body {
-  background-image: url(/api/images/Wallpaper.jpg);
-  background-repeat: no-repeat;
-  background-color: #48a743;
-  background-size: cover;
+  /*background-image: url(/api/images/Wallpaper.jpg);*/
+  /*background-repeat: no-repeat;*/
+  /*background-color: #48a743;*/
+  /*background-size: cover;*/
 }
 
 .wrapper {
