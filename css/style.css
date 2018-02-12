@@ -318,29 +318,3 @@ hr {
   margin: 1em 0;
   padding: 0; 
 }
-
-
-/* zone_1.css */
-
-
-.sub-title {
-  font-size: 1em;
-}
-.gradient {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a17f22+0,ffffff+50,a17f22+100 */
-  background: #a17f22; /* Old browsers */
-  background: -moz-linear-gradient(left,  #a17f22 0%, #ffffff 50%, #a17f22 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left,  #a17f22 0%,#ffffff 50%,#a17f22 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right,  #a17f22 0%,#ffffff 50%,#a17f22 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a17f22', endColorstr='#a17f22',GradientType=1 ); /* IE6-9 */
-
-}
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 2px solid #3fa63b;
-  margin: 1em 0;
-  padding: 0; 
-}	
