@@ -32,7 +32,7 @@ if ($height > 15) {
   <?php
 }
 ?>
-    $(".footer h5").fitText(1.1);
+    $(".footer h5").fitText(1.2);
   });
 
 </script>
