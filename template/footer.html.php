@@ -32,7 +32,11 @@ if ($height > 15) {
   <?php
 }
 ?>
+<<<<<<< HEAD
     $(".footer h5").fitText(1.2);
+=======
+    $(".footer h5").fitText(1.4);
+>>>>>>> parent of 569675b... increasing the size of time and date again.
   });
 
 </script>
