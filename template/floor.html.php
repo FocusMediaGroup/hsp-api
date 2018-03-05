@@ -1,10 +1,10 @@
-<?php include_once 'head.html.php'; ?>
-<header>
-  <h1 class="title text-center"><img src='<?php echo $config['logo']; ?>'></h1>
-  <h2 class="text-center text-uppercase">Today's Event - <?php echo $floorTitle; ?></h2>
-</header>
+<?php
+include_once 'head.html.php';
+include_once 'header.html.php';
+?>
 <!-- Page Content -->
 <div class="container">
+  <h2 class="text-center text-uppercase">Today's Event - <?php echo $floorTitle; ?></h2>
   <?php
   if (is_array($reservations)) {
     $height = floor(65 / count($reservations)) / 2;

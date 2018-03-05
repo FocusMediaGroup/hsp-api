@@ -35,6 +35,18 @@ class Controller
       'reservations' => $currentReservations
     );
   }
+  /**
+   * 
+   * @param type $arg
+   * @return type
+   */
+  public function touchAction($arg)
+  {
+    return array(
+      'htmlTitle' => 'The Greek Campus',
+      'reservations' => $currentReservations
+    );
+  }
 
   /**
    * 

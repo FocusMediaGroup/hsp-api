@@ -1,26 +1,21 @@
-<?php include_once 'head.html.php'; ?>
-<header>
-  <div class="container">
-    <h1><img src='<?php echo $config['logo']; ?>' height="150px"/></h1>
-    <h2 class="text-center">Today's Events</h2>
+<?php
+include_once 'head.html.php';
+include_once 'header.html.php';
+?>
+<div class="container-fluid">
+  <h2 class="text-center">Today's Events</h2>
+  <!-- Page Content -->
+  <div class="list-group" id="content">
   </div>
-</header>
-<div class="container">
   <?php
   if (is_array($reservations)) {
     $height = floor(65 / count($reservations)) / 2;
     ?>
-    <style>
-      .table > tbody > tr > td {
-        height: <?php echo (15 > $height) ? $height : 15; ?>vh;
-      }
-    </style>
-    <!-- Page Content -->
-    <ul class="list-group list-inline row">
+    <ul class="list-group">
       <?php
       foreach ($reservations as $reservation) {
         ?>
-        <li class="list-group-item list-group-item-info col-md-4">
+        <li class="list-group-item list-group-item-info">
           <div class="row">
             <?php if (file_exists('./images/logos/' . $reservation['title'] . '.png')) { ?>
               <div class="col-md-3">

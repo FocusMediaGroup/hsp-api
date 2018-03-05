@@ -1,62 +1,50 @@
-<?php include_once 'head.html.php'; ?>
-<header>
-  <div class="container">
-    <h1><img src='<?php echo $config['logo']; ?>' height="150px"/></h1>
+<?php
+include_once 'head.html.php';
+include_once 'header.html.php';
+?>
+<div class="container-fluid">
+  <style>
+    /*http://fian.my.id/Waves/#examples*/
+    /*https://hoxxep.github.io/snarl/*/
+  </style>
+  <button class="cbutton cbutton--effect-ivana">
+    <i class="cbutton__icon fa fa-fw fa-step-backward"></i>
+    <span class="cbutton__text">Backward</span>
+  </button>
+  <!-- Page Content -->
+  <div class="row custom-btns">
+    <div class="col-md-2">
+      <button class="btn btn-block bg-orange">GrEEK</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-block bg-red">LIBRARY</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-block bg-yellow">WALLACE</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-block bg-green">FALAKI</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-block bg-blue">JAMEEL</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-block bg-grey"><i class="glyphicon glyphicon-home" ></i></button>
+    </div>
   </div>
-</header>
-<div class="container">
-  <?php
-  if (is_array($reservations)) {
-    $height = floor(65 / count($reservations)) / 2;
-    ?>
-    <style>
-      .table > tbody > tr > td {
-        height: <?php echo (15 > $height) ? $height : 15; ?>vh;
-      }
-    </style>
-    <!-- Page Content -->
-    <ul class="list-group list-inline row">
-      <?php
-      foreach ($reservations as $reservation) {
-        ?>
-        <li class="list-group-item list-group-item-info col-md-4">
-          <div class="row">
-            <?php if (file_exists('./images/logos/' . $reservation['title'] . '.png')) { ?>
-              <div class="col-md-3">
-                <img class='img-thumbnail img-responsive' src='images/logos/<?php echo $reservation['title'] ?>.png'/>
-              </div>
-              <?php
-            }
-            ?>
-            <div class="col-md-8">
-              <strong><?php echo $reservation['title']; ?></strong>
-            </div>
-            <div class="col-md-8">
-              <!-- Room name -->
-              <!--<div style="border-bottom:2px solid #3fa63b;height: 50%" class="text-uppercase">-->
-              <?php echo $reservation['resourceName']; ?>
-            </div>
-            <div class="col-md-8">
-              <!-- Event name -->
-              <?php echo $reservation['description']; ?>
-            </div>
-            <div class="col-md-8">
-              <!-- Floor Title -->
-              <?php echo $reservation['floorTitle']; ?>
-            </div>
-            <div class="col-md-1">
-              <span class="glyphicon glyphicon-circle-arrow-<?php echo $reservation['arrowDirection']; ?>"></span>
-            </div>
-          </div>
-        </li>
-      <?php }
-      ?>
-    </ul>
-    <?php
-  } else {
-    include_once 'ad.html.php';
-  }
-  ?>
+  <div class="line"></div>
+  <div id="coords"></div>
+  <div class="wrap">
+    <div class="circle">
+      <i class="icon i1 icon-terminal glyphicon glyphicon-console"></i>
+      <i class="icon i2 icon-code-fork glyphicon glyphicon-equalizer"></i>
+      <i class="icon i3 icon-keyboard glyphicon glyphicon-signal"></i>
+      <i class="icon i4 icon-code glyphicon glyphicon-upload"></i>
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <span class="text">hover on me</span>
+    </div>
+  </div>
 </div>
 <!-- Search-->
 <div id="search">
@@ -75,63 +63,4 @@
 </div>
 <!-- /.Search-->
 <!-- /.container -->
-<footer class="footer">
-  <div class="container-fluid">
-    <h5 class="time pull-left" id="time-part"><?php echo date(TIME_FORMAT); ?></h5>
-    <h5 class="pull-right" id="date-part"><?php echo date(DATE_FORMAT); ?></h5>
-  </div>
-</footer>
-<!-- jQuery Version 1.11.1 -->
-<script src="js/jquery.js"></script>
-<script src="js/jquery.fittext.js"></script>
-<script src="js/moment.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-<script src="assets/plugins/jquery.virtual_keyboard/jquery.virtual_keyboard.js" type="text/javascript"></script>
-
-<script>
-  $(document).ready(function () {
-    var $colon = '';
-    var interval = setInterval(function () {
-      var momentNow = moment();
-      $('#date-part').html(momentNow.format('dddd, MMMM Do YYYY'));
-      $colon = (':' == $colon) ? ' ' : ':';
-      $('#time-part').html(momentNow.format('h') + $colon
-              + momentNow.format('mm a'));
-    }, 1000);
-
-<?php
-if ($height > 15) {
-  ?>
-      $(".fit-text").fitText(1);
-  <?php
-} else {
-  ?>
-      $(".fit-text").fitText(2.4);
-  <?php
-}
-?>
-    $(".footer h5").fitText(1.5);
-
-    $('#custom-search-input input').keyboard({
-
-      //theme: 'default',
-
-      //is_hidden: false,
-
-      //close_speed: 1000,
-
-      //enabled: false,
-
-      //layout: 'en_US',
-
-      // definimos un trigger al keyboard.
-      // Al hacer click sobre el selector que tenga el id (#) o la clase (.) definida
-      // se ocultara o mostrara el keyboard segun corresponda.
-      trigger: '#buttom1'
-    });
-  });
-
-</script>
-</body>
-</html>
+<?php include_once 'footer.html.php'; ?>

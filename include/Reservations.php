@@ -48,6 +48,7 @@ class Reservations
     $username = 'api';
     $password = 'api$api';
     $this->apiClient = new bookedapiclient($username, $password);
+    $this->fetchResources();
     $this->timezone = new \DateTimeZone(YOURTIMEZONE);
     $this->now = new \DateTime();
   }
@@ -60,6 +61,18 @@ class Reservations
   function fetchReservations()
   {
     $this->reservations = $this->apiClient->getReservation();
+    $reservationsFile = fopen("reservations.json", "w") or die("Unable to open file!");
+    fwrite($reservationsFile, json_encode($this->reservations));
+    fclose($reservationsFile);
+  }
+
+  function fetchResources()
+  {
+    $resources = $this->apiClient->getResource();
+
+    $resourcesFile = fopen("resources.json", "w") or die("Unable to open file!");
+    fwrite($resourcesFile, json_encode($resources));
+    fclose($resourcesFile);
   }
 
   function getTimezone()
@@ -118,6 +131,7 @@ class Reservations
       foreach ($this->reservations['reservations'] as $reservation) {
         $reservationStart = new \DateTime($reservation['startDate']);
         $reservationEnd = new \DateTime($reservation['endDate']);
+
         if (($this->now->getTimestamp() >= $reservationStart->getTimestamp()) &&
             ($this->now->getTimestamp() < $reservationEnd->getTimestamp())) {
 

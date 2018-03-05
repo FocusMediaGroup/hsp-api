@@ -4,13 +4,13 @@ body, h4, h2, p {
   margin: 0;
   padding: 0;
   /*  font-family: tahoma;*/
-  /*color: #fff;*/
+  color: #fff;
 }
 
 body {
   /*background-image: url(/api/images/Wallpaper.jpg);*/
   /*background-repeat: no-repeat;*/
-  /*background-color: #48a743;*/
+  background-color: #363435;
   /*background-size: cover;*/
 }
 
@@ -350,4 +350,34 @@ hr {
 
 #custom-search-input .glyphicon-search{
   font-size: 23px;
+}
+
+button{
+  background:#fff;
+  border-top:solid 1px #000;
+  text-shadow: 0px 1px 0px rgba(0,0,0,.5); /* 50% white from bottom */
+}
+.line {
+  background:#fff;
+  border-top:solid 1px #000;
+  opacity:0.4;
+}
+
+.fs-time{
+  color: #FEF013;
+  font-size: 75px;
+  font-weight: 800;
+}
+#fssec{
+  color: #FFF;
+  font-size: 25px;
+  vertical-align: top;
+  position: relative;
+  top: 20px;
+  left: -20px;
+}
+.fs-date{
+  position: relative;
+  top: -25px;
+  left: 1%;
 }

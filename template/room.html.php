@@ -1,11 +1,9 @@
-<?php include_once 'head.html.php'; ?>
-<header>
-  <div class="container-fluid">
-    <h1 class=" pull-left text-uppercase"><?php echo $roomName; ?></h1>
-    <h1 class=" pull-right"><image src='<?php echo $config['logo']; ?>'></h1>
-  </div>
-</header>
+<?php
+include_once 'head.html.php';
+include_once 'header.html.php';
+?>
 <div class="container-fluid" id="content">  
+  <h1 class=" pull-left text-uppercase"><?php echo $roomName; ?></h1>
   <?php
   if (is_array($reservations)) {
     ?>
