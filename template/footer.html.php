@@ -5,26 +5,25 @@ foreach ($scripts as $script) {
   <?php
 }
 ?>
+<script type="text/javascript">
+  Waves.attach('.flat-buttons', ['waves-button']);
+  Waves.init();
+</script>
 <script>
-  $(document).ready(function () {
-<?php
-if ($height > 15) {
-  ?>
-      $(".fit-text").fitText(1);
-  <?php
-} else {
-  ?>
-      $(".fit-text").fitText(2.4);
-  <?php
-}
-?>
-    $(".footer h5").fitText(1.5);
-  });
-
 // Prevent touch scroll
   document.body.addEventListener('touchmove', function (event) {
     event.preventDefault();
   }, false);
+</script>
+<script>
+  $('#basic-demo').click(function () {
+    Snarl.addNotification({
+      title: 'Custom Timeouts',
+      text: 'This notification has an 8000ms timeout!',
+      icon: '<span class="glyphicon glyphicon-time"></span>',
+      timeout: 8000
+    });
+  });
 </script>
 </body>
 </html>

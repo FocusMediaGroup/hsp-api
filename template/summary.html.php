@@ -4,12 +4,18 @@ include_once 'header.html.php';
 ?>
 <div class="container-fluid">
   <h2 class="text-center">Today's Events</h2>
+
   <!-- Page Content -->
+  <button id="basic-demo" class="waves-effect waves-button waves-light">Basic Demo</button>
+  <div id="example" class="section page show appear flow">
+    <?php include_once 'reservation.html.php'; ?>
+  </div>
+
   <div class="list-group" id="content">
+
   </div>
   <?php
   if (is_array($reservations)) {
-    $height = floor(65 / count($reservations)) / 2;
     ?>
     <ul class="list-group">
       <?php

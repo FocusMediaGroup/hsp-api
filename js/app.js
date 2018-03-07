@@ -29,6 +29,7 @@ $(document).ready(function () {
     trigger: '#buttom1'
   });
 });
+
 function init() {
   // Get a reference to our touch-sensitive element
 //    var touchzone = document.getElementById("touchzone");

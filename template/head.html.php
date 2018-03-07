@@ -13,6 +13,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
     <link href="assets/plugins/jquery.virtual_keyboard/jquery.virtual_keyboard.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/snarl/snarl.min.css" rel="stylesheet" type="text/css"/>
     <!-- Custom CSS -->
     <link href="css/colors.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">

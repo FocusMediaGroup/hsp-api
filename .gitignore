@@ -2,3 +2,4 @@
 nbproject/*
 config/appConfig.php
 config/bookedapiconfig.php
+data/

@@ -29,12 +29,11 @@ class Controller
   {
     $Reservations = new Reservations();
     $htmlTitle = "Summary";
-    $currentReservations = $Reservations->getCurrentReservations();
     return array(
-      'htmlTitle' => 'Summary',
-      'reservations' => $currentReservations
+      'htmlTitle' => 'Summary'
     );
   }
+
   /**
    * 
    * @param type $arg
@@ -90,6 +89,16 @@ class Controller
       'roomName' => $roomName,
       'reservations' => $currentReservations
     );
+  }
+
+  /**
+   * 
+   */
+  public function dataAction()
+  {
+    $Reservations = new Reservations();
+    $Reservations->fetchResources();
+    $Reservations->fetchReservations();
   }
 
   /**

@@ -32,6 +32,8 @@ $scripts = array(
   "js/moment.min.js",
   "js/bootstrap.min.js",
   "assets/plugins/jquery.virtual_keyboard/jquery.virtual_keyboard.js",
+  "assets/plugins/waves/waves.min.js",
+  "assets/plugins/snarl/snarl.min.js",
   "js/app.js"
 );
 $template = 'template/' . $App->getPath() . '.html.php';
