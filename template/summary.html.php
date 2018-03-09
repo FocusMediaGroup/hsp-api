@@ -2,63 +2,36 @@
 include_once 'head.html.php';
 include_once 'header.html.php';
 ?>
-<div class="container-fluid">
-  <h2 class="text-center">Today's Events</h2>
+<style>
+  #content{
+    top: 100px;
+    position: relative;
+  }
+</style>
+<div class="container-fluid" id='content'>
+  <h1 class="text-center text-white">Today's Events</h1>
 
   <!-- Page Content -->
   <button id="basic-demo" class="waves-effect waves-button waves-light">Basic Demo</button>
-  <div id="example" class="section page show appear flow">
-    <?php include_once 'reservation.html.php'; ?>
-  </div>
-
-  <div class="list-group" id="content">
-
-  </div>
+  <?php // include_once 'sample_reservation.html.php';?>
   <?php
   if (is_array($reservations)) {
     ?>
-    <ul class="list-group">
+    <div id="example" class="section page show appear flow row">
       <?php
       foreach ($reservations as $reservation) {
-        ?>
-        <li class="list-group-item list-group-item-info">
-          <div class="row">
-            <?php if (file_exists('./images/logos/' . $reservation['title'] . '.png')) { ?>
-              <div class="col-md-3">
-                <img class='img-thumbnail img-responsive' src='images/logos/<?php echo $reservation['title'] ?>.png'/>
-              </div>
-              <?php
-            }
-            ?>
-            <div class="col-md-8">
-              <strong><?php echo $reservation['title']; ?></strong>
-            </div>
-            <div class="col-md-8">
-              <!-- Room name -->
-              <!--<div style="border-bottom:2px solid #3fa63b;height: 50%" class="text-uppercase">-->
-              <?php echo $reservation['resourceName']; ?>
-            </div>
-            <div class="col-md-8">
-              <!-- Event name -->
-              <?php echo $reservation['description']; ?>
-            </div>
-            <div class="col-md-8">
-              <!-- Floor Title -->
-              <?php echo $reservation['floorTitle']; ?>
-            </div>
-            <div class="col-md-1">
-              <span class="glyphicon glyphicon-circle-arrow-<?php echo $reservation['arrowDirection']; ?>"></span>
-            </div>
-          </div>
-        </li>
-      <?php }
+        include 'reservation.html.php';
+      }
       ?>
-    </ul>
+    </div>
     <?php
   } else {
     include_once 'ad.html.php';
   }
   ?>
+  <div class="list-group" id="content">
+
+  </div>
 </div>
 <!-- /.container-fluid -->
 <?php include_once 'footer.html.php'; ?>

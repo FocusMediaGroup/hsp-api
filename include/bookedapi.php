@@ -940,7 +940,7 @@ class bookedAPIclient
 
     $response_body = curl_exec($ch);
     if (DEBUG === TRUE) {
-      var_dump($response_body);
+//      var_dump($response_body);
     }
     $info = curl_getinfo($ch);
 

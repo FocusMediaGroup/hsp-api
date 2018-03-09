@@ -30,7 +30,8 @@ class Controller
     $Reservations = new Reservations();
     $htmlTitle = "Summary";
     return array(
-      'htmlTitle' => 'Summary'
+      'htmlTitle' => 'Summary',
+      'reservations' => $Reservations->getReservations()
     );
   }
 

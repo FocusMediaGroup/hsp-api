@@ -1,6 +1,6 @@
 <header>
   <div class="container-fluid">
-    <h1 class="pull-left"><img src='<?php echo $config['logo']; ?>' height="150px"/></h1>
+    <h1 class="pull-left"><img src='<?php echo $config['logo']; ?>' height="100px"/></h1>
     <div class="pull-right">
       <div id="fs-time-date" class="fs-resize">
         <div class="fs-time">

@@ -6,7 +6,7 @@ foreach ($scripts as $script) {
 }
 ?>
 <script type="text/javascript">
-  Waves.attach('.flat-buttons', ['waves-button']);
+  Waves.attach('.btn', ['waves-button']);
   Waves.init();
 </script>
 <script>

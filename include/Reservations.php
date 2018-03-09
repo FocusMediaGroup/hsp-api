@@ -47,10 +47,19 @@ class Reservations
   {
     $username = 'api';
     $password = 'api$api';
+    $username = 'api';
+    $password = 'api$api';
     $this->apiClient = new bookedapiclient($username, $password);
-    $this->fetchResources();
     $this->timezone = new \DateTimeZone(YOURTIMEZONE);
     $this->now = new \DateTime();
+  }
+
+  function fetchData()
+  {
+
+    $this->apiClient = new bookedapiclient($username, $password);
+    $this->fetchResources();
+    $this->fetchReservations();
   }
 
   function getApiClient()
@@ -64,6 +73,14 @@ class Reservations
     $reservationsFile = fopen("reservations.json", "w") or die("Unable to open file!");
     fwrite($reservationsFile, json_encode($this->reservations));
     fclose($reservationsFile);
+  }
+
+  function getReservations()
+  {
+    $str = file_get_contents('reservations.json');
+    $reservations = json_decode($str, true); // decode the JSON into an associative array
+    $this->reservations = $reservations['reservations'];
+    return $this->reservations;
   }
 
   function fetchResources()
@@ -98,7 +115,6 @@ class Reservations
   function getCurrentReservationByRoom($roomName)
   {
     $currentReservations = null;
-    $this->fetchReservations();
     if (is_array($this->reservations['reservations'])) {
       foreach ($this->reservations['reservations'] as $reservation) {
         if ($reservation['resourceName'] == $roomName) {
@@ -126,39 +142,39 @@ class Reservations
   {
     $currentReservations = null;
     $reservationByFloorNo = null;
-    $this->fetchReservations();
+    $this->getReservations();
     if (is_array($this->reservations['reservations'])) {
       foreach ($this->reservations['reservations'] as $reservation) {
         $reservationStart = new \DateTime($reservation['startDate']);
         $reservationEnd = new \DateTime($reservation['endDate']);
 
-        if (($this->now->getTimestamp() >= $reservationStart->getTimestamp()) &&
-            ($this->now->getTimestamp() < $reservationEnd->getTimestamp())) {
+//        if (($this->now->getTimestamp() >= $reservationStart->getTimestamp()) &&
+//            ($this->now->getTimestamp() < $reservationEnd->getTimestamp())) {
 
-          $reservation['startDate'] = new \DateTime($reservation['startDate']);
-          $reservation['startDate']->setTimezone($this->timezone);
-          $reservation['endDate'] = new \DateTime($reservation['endDate']);
-          $reservation['endDate']->setTimezone($this->timezone);
+        $reservation['startDate'] = new \DateTime($reservation['startDate']);
+        $reservation['startDate']->setTimezone($this->timezone);
+        $reservation['endDate'] = new \DateTime($reservation['endDate']);
+        $reservation['endDate']->setTimezone($this->timezone);
 
-          $resource = $this->getApiClient()->getResource(intval($reservation['resourceId']));
-          $arrowDirection = NULL;
+        $resource = $this->getApiClient()->getResource(intval($reservation['resourceId']));
+        $arrowDirection = NULL;
 
-          foreach ($resource['customAttributes'] as $customAttribute) {
-            switch ($customAttribute['id']) {
-              case 3:
-                $reservation['floorTitle'] = $customAttribute['value'];
-                break;
-              case 5:
-                $reservation['floorNo'] = $customAttribute['value'];
-                break;
-              case 22:
-                $reservation['arrowDirection'] = $customAttribute['value'];
-                break;
-            }
+        foreach ($resource['customAttributes'] as $customAttribute) {
+          switch ($customAttribute['id']) {
+            case 3:
+              $reservation['floorTitle'] = $customAttribute['value'];
+              break;
+            case 5:
+              $reservation['floorNo'] = $customAttribute['value'];
+              break;
+            case 22:
+              $reservation['arrowDirection'] = $customAttribute['value'];
+              break;
           }
-          $reservationByFloorNo[$reservation['floorNo']][] = $reservation;
-//          $currentReservations[] = $reservation;
         }
+        $reservationByFloorNo[$reservation['floorNo']][] = $reservation;
+//          $currentReservations[] = $reservation;
+//        }
       }
       krsort($reservationByFloorNo);
       foreach ($reservationByFloorNo as $floorNo => $reservations) {

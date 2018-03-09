@@ -33,6 +33,10 @@ html {
 body {
   margin-bottom: 60px; /* Margin bottom by footer height */
 }
+header {
+  position: absolute;
+  width: 100%;
+}
 .footer {
   position: fixed;
   bottom: 0;
@@ -380,4 +384,5 @@ button{
   position: relative;
   top: -25px;
   left: 1%;
+  color: #FFF;
 }

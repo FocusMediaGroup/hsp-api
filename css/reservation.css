@@ -1,0 +1,79 @@
+/*
+The following content was designed & implemented under AlexSeif.com
+*/
+/* 
+    Created on : Mar 8, 2018, 6:58:26 PM
+    Author     : Alex Seif <me@alexseif.com>
+*/
+
+.event-container{
+  /*width: 708px;*/
+  /*height: 200px;*/
+  margin: 5px auto;
+}
+
+
+.box {
+  padding: 10px;
+  background: #fff;
+  border-radius: .2em;
+  box-sizing: border-box;
+  width: calc(100% - 200px);
+  display: inline-block;
+  /*margin: 0 auto;*/
+  /*width: 400px;*/
+  height: 125px;
+  -webkit-transition: all 1000ms;
+  -moz-transition: all 1000ms;
+  -ms-transition: all 1000ms;
+  -o-transition: all 1000ms;
+  transition: all 1000ms;
+}
+
+.box h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.left-col, .middle-col, .right-col{
+  float: left;
+}
+.left-col,
+.right-col {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  background: #fff;
+  border: 1px solid #fff;
+  top: 15px;
+}
+
+.left-col {
+  border-radius: 4px 0 0 4px;
+  left: 1px;
+}
+.left-col img {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  max-width: 100px;
+}
+.right-col {
+  /*padding: 10px;*/
+  border-radius: 0 4px 4px 0;
+}
+
+.colored-button .btn{
+  margin-bottom: 5px;
+}
+.colored-button .btn { color: #fff; }
+.colored-button .blue, 
+.colored-button .blue:hover { background: #01BCFF; }
+.colored-button .green,
+.colored-button .green:hover { background: #1bb556; }
+.colored-button .red,
+.colored-button .red:hover { background: #ff4f0f; }
