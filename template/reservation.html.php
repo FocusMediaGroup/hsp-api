@@ -22,10 +22,8 @@
         Building<?php //print_r($reservation['floorTitle']);     ?></button>
     </div>
     <div class="text-center">
+    <?php print_r($reservation['description']); ?>
       <?php //print_r($reservation['arrowDirection']); ?>
     </div>
-  </div>
-  <div class="right-col text-center">
-    <?php print_r($reservation['description']); ?>
   </div>
 </div>
