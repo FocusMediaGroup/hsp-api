@@ -51,26 +51,26 @@ $.ajax('resources.json').done(function (data) {
   }
 });
 
-var $data = $.ajax({
-  url: "reservations.json"
-}).done(function (data) {
-  $content = $('#content');
-
-  for (var key in data.reservations) {
-    $reservation = data.reservations[key];
-    var $now = Date.now();
-    var $startDate = new Date($reservation.startDate).getTime();
-    if ($startDate > $now) {
-      $content.append(
-              '<div class="list-group-item bg-blue"><h2 class="list-group-item-heading">'
-              + $reservation.title
-              + '</h2><h3>'
-              + $reservation.resourceName
-              + '</h3><p class="list-group-item-text">'
-              + $resources[$reservation.resourceId].name
-              + $reservation.description
-              + '</p></div>'
-              );
-    }
-  }
-});
+//var $data = $.ajax({
+//  url: "reservations.json"
+//}).done(function (data) {
+//  $content = $('#content');
+//
+//  for (var key in data.reservations) {
+//    $reservation = data.reservations[key];
+//    var $now = Date.now();
+//    var $startDate = new Date($reservation.startDate).getTime();
+//    if ($startDate > $now) {
+//      $content.append(
+//              '<div class="list-group-item bg-blue"><h2 class="list-group-item-heading">'
+//              + $reservation.title
+//              + '</h2><h3>'
+//              + $reservation.resourceName
+//              + '</h3><p class="list-group-item-text">'
+//              + $resources[$reservation.resourceId].name
+//              + $reservation.description
+//              + '</p></div>'
+//              );
+//    }
+//  }
+//});

@@ -1,4 +1,4 @@
-<div class="event-container col-md-5 col-md-push-1">
+<div class="event-container col-md-5 col-md-push-1" data-id="<?php print_r($reservation['referenceNumber']); ?>">
   <div class="left-col">
     <?php if (file_exists('./images/logos/' . $reservation['title'] . '.png')) { ?>
       <img src="images/logos/<?php echo $reservation['title'] ?>.png"
@@ -17,12 +17,12 @@
       <button class="btn blue "><strong>Room</strong>
         <?php print_r($reservation['resourceName']); ?></button>
       <button class="btn green"><strong>Floor</strong>
-        Floor <?php //print_r($reservation['floorTitle']);     ?></button>
+        Floor <?php //print_r($reservation['floorTitle']);  ?></button>
       <button class="btn red"><strong>Building</strong> 
-        Building<?php //print_r($reservation['floorTitle']);     ?></button>
+        Building<?php //print_r($reservation['floorTitle']);  ?></button>
     </div>
     <div class="text-center">
-    <?php print_r($reservation['description']); ?>
+      <?php print_r($reservation['description']); ?>
       <?php //print_r($reservation['arrowDirection']); ?>
     </div>
   </div>
