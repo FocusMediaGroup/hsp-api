@@ -9,14 +9,14 @@
     <h2>
       <?php print_r($reservation['title']); ?>
       <small class="pull-right">
-        <?php print_r($reservation['startDate']); ?> - 
-        <?php print_r($reservation['endDate']); ?>
+        <?php print_r($reservation['start']); ?> - 
+        <?php print_r($reservation['end']); ?>
       </small>
     </h2>
     <div class="colored-button text-center">
-      <button class="btn blue "><strong>Room</strong>
+      <button class="btn"><strong>Room</strong>
         <?php print_r($reservation['resourceName']); ?></button>
-      <button class="btn green"><strong>Floor</strong>
+      <button class="btn"><strong>Floor</strong>
         Floor <?php //print_r($reservation['floorTitle']);  ?></button>
       <button class="btn red"><strong>Building</strong> 
         Building<?php //print_r($reservation['floorTitle']);  ?></button>

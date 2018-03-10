@@ -116,8 +116,8 @@ class Reservations
   function getCurrentReservationByRoom($roomName)
   {
     $currentReservations = null;
-    if (is_array($this->reservations['reservations'])) {
-      foreach ($this->reservations['reservations'] as $reservation) {
+    if (is_array($this->reservations)) {
+      foreach ($this->reservations as $reservation) {
         if ($reservation['resourceName'] == $roomName) {
           $reservationStart = new \DateTime($reservation['startDate']);
           $reservationEnd = new \DateTime($reservation['endDate']);
@@ -144,36 +144,38 @@ class Reservations
     $currentReservations = null;
     $reservationByFloorNo = null;
     $this->getReservations();
-    if (is_array($this->reservations['reservations'])) {
-      foreach ($this->reservations['reservations'] as $reservation) {
+    if (is_array($this->reservations)) {
+      foreach ($this->reservations as $reservation) {
         $reservationStart = new \DateTime($reservation['startDate']);
         $reservationEnd = new \DateTime($reservation['endDate']);
 
 //        if (($this->now->getTimestamp() >= $reservationStart->getTimestamp()) &&
 //            ($this->now->getTimestamp() < $reservationEnd->getTimestamp())) {
 
-        $reservation['startDate'] = new \DateTime($reservation['startDate']);
-        $reservation['startDate']->setTimezone($this->timezone);
-        $reservation['endDate'] = new \DateTime($reservation['endDate']);
-        $reservation['endDate']->setTimezone($this->timezone);
+          $reservation['startDate'] = new \DateTime($reservation['startDate']);
+          $reservation['startDate']->setTimezone($this->timezone);
+          $reservation['endDate'] = new \DateTime($reservation['endDate']);
+          $reservation['endDate']->setTimezone($this->timezone);
+          $reservation['start']= $reservation['startDate']->format(TIME_FORMAT);
+          $reservation['end']= $reservation['endDate']->format(TIME_FORMAT);
 
-        $resource = $this->getApiClient()->getResource(intval($reservation['resourceId']));
-        $arrowDirection = NULL;
+          $resource = $this->getApiClient()->getResource(intval($reservation['resourceId']));
+          $arrowDirection = NULL;
 
-        foreach ($resource['customAttributes'] as $customAttribute) {
-          switch ($customAttribute['id']) {
-            case 3:
-              $reservation['floorTitle'] = $customAttribute['value'];
-              break;
-            case 5:
-              $reservation['floorNo'] = $customAttribute['value'];
-              break;
-            case 22:
-              $reservation['arrowDirection'] = $customAttribute['value'];
-              break;
+          foreach ($resource['customAttributes'] as $customAttribute) {
+            switch ($customAttribute['id']) {
+              case 3:
+                $reservation['floorTitle'] = $customAttribute['value'];
+                break;
+              case 5:
+                $reservation['floorNo'] = $customAttribute['value'];
+                break;
+              case 22:
+                $reservation['arrowDirection'] = $customAttribute['value'];
+                break;
+            }
           }
-        }
-        $reservationByFloorNo[$reservation['floorNo']][] = $reservation;
+          $reservationByFloorNo[$reservation['floorNo']][] = $reservation;
 //          $currentReservations[] = $reservation;
 //        }
       }
