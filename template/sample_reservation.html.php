@@ -1,5 +1,5 @@
 <!-- sample reservation -->
-<div class="event-container col-md-5 col-md-push-1" data-id="">
+<div class="event-container col-md-5 col-md-push-1" data-id="" data-start="" data-end="">
   <div class="left-col">
     <img src="images/tmp/Logobit_digital_black_large.png" 
          alt="Uber logo"  class="img-responsive" />

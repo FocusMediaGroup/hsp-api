@@ -96,11 +96,12 @@ class Controller
   /**
    * 
    */
-  public function dataAction()
+  public function cronAction()
   {
     $Reservations = new Reservations();
     $Reservations->fetchResources();
     $Reservations->fetchReservations();
+    return array();
   }
 
   /**
