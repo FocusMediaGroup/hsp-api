@@ -30,12 +30,17 @@ function loadReservations() {
 
 function drawSummaryReservations() {
   $content = $('#content');
+  $content.append('<div class="loader"></div>');
   var $data = $.ajax({
     url: "summaryAjax"
   }).done(function (data) {
     //TODO animate entrance
     $content.html(data);
   });
+}
+
+function loopReservations() {
+
 }
 
 $(document).ready(function () {
@@ -62,9 +67,11 @@ $(document).ready(function () {
   loadReservations();
 
 // Draw Reservations
-//  var drawInterval = setInterval(drawSummaryReservations, 8000);
+  var drawInterval = setInterval(drawSummaryReservations, 300000);
+//  var drawInterval = setInterval(drawSummaryReservations, 5000);
 
   //Iterater over reservations
+  var activeInterval = setInterval(loopReservations(), 4000);
 });
 
 
