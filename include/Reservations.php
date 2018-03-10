@@ -70,6 +70,7 @@ class Reservations
   function fetchReservations()
   {
     $this->reservations = $this->apiClient->getReservation();
+    //Clean up before save
     $reservationsFile = fopen("reservations.json", "w") or die("Unable to open file!");
     fwrite($reservationsFile, json_encode($this->reservations));
     fclose($reservationsFile);
@@ -86,7 +87,7 @@ class Reservations
   function fetchResources()
   {
     $resources = $this->apiClient->getResource();
-
+    //Clean up before save
     $resourcesFile = fopen("resources.json", "w") or die("Unable to open file!");
     fwrite($resourcesFile, json_encode($resources));
     fclose($resourcesFile);

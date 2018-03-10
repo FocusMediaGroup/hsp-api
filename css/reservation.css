@@ -60,20 +60,28 @@ The following content was designed & implemented under AlexSeif.com
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  max-width: 100px;
+  max-width: 98px;
 }
 .right-col {
-  /*padding: 10px;*/
   border-radius: 0 4px 4px 0;
 }
 
 .colored-button .btn{
   margin-bottom: 5px;
+  color: #000; 
 }
-.colored-button .btn { color: #fff; }
 .colored-button .blue, 
-.colored-button .blue:hover { background: #01BCFF; }
+.colored-button .blue:hover { 
+  background: #01BCFF; 
+  color: #fff;
+}
 .colored-button .green,
-.colored-button .green:hover { background: #1bb556; }
+.colored-button .green:hover { 
+  background: #1bb556; 
+  color: #fff;
+}
 .colored-button .red,
-.colored-button .red:hover { background: #ff4f0f; }
+.colored-button .red:hover { 
+  background: #ff4f0f; 
+  color: #fff;
+}

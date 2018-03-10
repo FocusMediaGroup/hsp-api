@@ -7,31 +7,19 @@ include_once 'header.html.php';
     top: 100px;
     position: relative;
   }
+  h1 { 
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0px 1px 0px rgba(255,255,255,.5); /* 50% white from bottom */
+    width: calc(100% - 450px);
+    display: inline-block;
+  }
 </style>
 <div class="container-fluid" id='content'>
-  <h1 class="text-center text-white">Today's Events</h1>
-
   <!-- Page Content -->
   <button id="basic-demo" class="waves-effect waves-button waves-light">Basic Demo</button>
-  <?php // include_once 'sample_reservation.html.php';?>
-  <?php
-  if (is_array($reservations)) {
-    ?>
-    <div id="example" class="section page show appear flow row">
-      <?php
-      foreach ($reservations as $reservation) {
-        include 'reservation.html.php';
-      }
-      ?>
-    </div>
-    <?php
-  } else {
-    include_once 'ad.html.php';
-  }
-  ?>
-  <div class="list-group" id="content">
-
-  </div>
+  <?php include_once 'summaryAjax.html.php';?>
 </div>
 <!-- /.container-fluid -->
 <?php include_once 'footer.html.php'; ?>

@@ -31,7 +31,8 @@ class Controller
     $htmlTitle = "Summary";
     return array(
       'htmlTitle' => 'Summary',
-      'reservations' => $Reservations->getReservations()
+      'title' => 'Today\'s Events',
+      'reservations' => $Reservations->getCurrentReservations()
     );
   }
 
@@ -117,6 +118,20 @@ class Controller
     } else {
       echo "No Action to run";
     }
+  }
+
+  public function summaryAjaxAction()
+  {
+    $Reservations = new Reservations();
+    $htmlTitle = "Summary";
+    return array(
+      'reservations' => $Reservations->getCurrentReservations()
+    );
+  }
+
+  public function sampleAction()
+  {
+    return array('title' => 'Sample');
   }
 
 }

@@ -8,7 +8,7 @@
           content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $htmlTitle; ?></title>
+    <title><?php echo $title; ?></title>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
