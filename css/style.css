@@ -320,9 +320,12 @@ hr {
 }
 
 /** Search **/
+div#keyboard{
+  bottom: 30%;
+}
 #search{
   position: fixed;
-  bottom: 230px;
+  bottom: 40%;
 }
 #custom-search-input{
   padding: 3px;

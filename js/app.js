@@ -49,10 +49,10 @@ $(document).ready(function () {
 
   // Keyboard
   $('#custom-search-input input').keyboard({
-//theme: 'default',
-//is_hidden: false,
+    theme: 'default',
+    is_hidden: false,
 //close_speed: 1000,
-//enabled: false,
+    enabled: false,
 //layout: 'en_US',
 // definimos un trigger al keyboard.
 // Al hacer click sobre el selector que tenga el id (#) o la clase (.) definida

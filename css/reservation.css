@@ -6,6 +6,11 @@ The following content was designed & implemented under AlexSeif.com
     Author     : Alex Seif <me@alexseif.com>
 */
 
+.content{
+  top: 100px;
+  position: relative;
+}
+
 .event-container{
   /*width: 708px;*/
   /*height: 200px;*/
@@ -31,10 +36,15 @@ The following content was designed & implemented under AlexSeif.com
 }
 
 .box h2 {
-  font-size: 20px;
+  font-size: 2em;
   margin-bottom: 10px;
   padding: 5px 10px;
   border-bottom: 1px solid #ccc;
+  font-weight: bold;
+}
+.box h2 small {
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .left-col, .middle-col, .right-col{
@@ -48,6 +58,9 @@ The following content was designed & implemented under AlexSeif.com
   background: #fff;
   border: 1px solid #fff;
   top: 15px;
+}
+.middle-col{
+  width: calc(100% - 202px);
 }
 
 .left-col {
@@ -69,6 +82,7 @@ The following content was designed & implemented under AlexSeif.com
 .colored-button .btn{
   margin-bottom: 5px;
   color: #000; 
+  font-size: 1.5em;
 }
 .colored-button .blue, 
 .colored-button .blue:hover { 
