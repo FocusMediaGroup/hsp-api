@@ -44,7 +44,7 @@ class Controller
   public function touchAction($arg)
   {
     return array(
-      'htmlTitle' => 'The Greek Campus',
+      'title' => 'The Greek Campus',
       'reservations' => $currentReservations
     );
   }
@@ -68,8 +68,7 @@ class Controller
     $currentReservations = $Reservations->getCurrentReservationsByFloor($current_floor);
     $floorTitle = $htmlTitle = $Reservations->getFloorTitle();
     return array(
-      'htmlTitle' => $floorTitle,
-      'floorTitle' => $floorTitle,
+      'title' => $floorTitle,
       'reservations' => $currentReservations
     );
   }

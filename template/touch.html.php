@@ -2,7 +2,7 @@
 include_once 'head.html.php';
 include_once 'header.html.php';
 ?>
-<div class="container-fluid">
+<div class="container-fluid" id="content">
   <style>
     /*http://fian.my.id/Waves/#examples*/
     /*https://hoxxep.github.io/snarl/*/
@@ -12,39 +12,19 @@ include_once 'header.html.php';
     <span class="cbutton__text">Backward</span>
   </button>
   <!-- Page Content -->
-  <div class="row custom-btns">
-    <div class="col-md-2">
-      <button class="btn btn-block bg-orange">GrEEK</button>
-    </div>
-    <div class="col-md-2">
-      <button class="btn btn-block bg-red">LIBRARY</button>
-    </div>
-    <div class="col-md-2">
-      <button class="btn btn-block bg-yellow">WALLACE</button>
-    </div>
-    <div class="col-md-2">
-      <button class="btn btn-block bg-green">FALAKI</button>
-    </div>
-    <div class="col-md-2">
-      <button class="btn btn-block bg-blue">JAMEEL</button>
-    </div>
-    <div class="col-md-2">
-      <button class="btn btn-block bg-grey"><i class="glyphicon glyphicon-home" ></i></button>
-    </div>
-  </div>
   <div class="line"></div>
   <div id="coords"></div>
-  <div class="wrap">
-    <div class="circle">
-      <i class="icon i1 icon-terminal glyphicon glyphicon-console"></i>
-      <i class="icon i2 icon-code-fork glyphicon glyphicon-equalizer"></i>
-      <i class="icon i3 icon-keyboard glyphicon glyphicon-signal"></i>
-      <i class="icon i4 icon-code glyphicon glyphicon-upload"></i>
-      <div class="line1"></div>
-      <div class="line2"></div>
-      <span class="text">hover on me</span>
-    </div>
-  </div>
+  <!--  <div class="wrap">
+      <div class="circle">
+        <i class="icon i1 icon-terminal glyphicon glyphicon-console"></i>
+        <i class="icon i2 icon-code-fork glyphicon glyphicon-equalizer"></i>
+        <i class="icon i3 icon-keyboard glyphicon glyphicon-signal"></i>
+        <i class="icon i4 icon-code glyphicon glyphicon-upload"></i>
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <span class="text">hover on me</span>
+      </div>
+    </div>-->
 </div>
 <!-- Search-->
 <div id="search">
@@ -62,5 +42,25 @@ include_once 'header.html.php';
   </div>
 </div>
 <!-- /.Search-->
+<div class="row custom-btns hide">
+  <div class="col-md-2">
+    <button class="btn btn-block bg-orange">GrEEK</button>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-block bg-red">LIBRARY</button>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-block bg-yellow">WALLACE</button>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-block bg-green">FALAKI</button>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-block bg-blue">JAMEEL</button>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-block bg-grey"><i class="glyphicon glyphicon-home" ></i></button>
+  </div>
+</div>
 <!-- /.container -->
 <?php include_once 'footer.html.php'; ?>

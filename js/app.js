@@ -67,11 +67,31 @@ $(document).ready(function () {
   loadReservations();
 
 // Draw Reservations
-  var drawInterval = setInterval(drawSummaryReservations, 300000);
-//  var drawInterval = setInterval(drawSummaryReservations, 5000);
+//  var drawInterval = setInterval(drawSummaryReservations, 300000);
+  var drawInterval = setInterval(drawSummaryReservations, 5000);
 
   //Iterater over reservations
   var activeInterval = setInterval(loopReservations(), 4000);
+
+
+//  $("#search").autocomplete({
+//    source: function (request, response) {
+//      $.ajax({
+//        url: "reservations",
+//        dataType: "jsonp",
+//        data: {
+//          term: request.term
+//        },
+//        success: function (data) {
+//          response(data);
+//        }
+//      });
+//    },
+//    minLength: 2,
+//    select: function (event, ui) {
+//      log("Selected: " + ui.item.value + " aka " + ui.item.id);
+//    }
+//  });
 });
 
 
