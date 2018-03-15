@@ -110,8 +110,8 @@ $(document).ready(function () {
   loadReservations();
 
 // Draw Reservations 
-//  var drawInterval = setInterval(drawPage, 300000); // 5 mins
-  var drawInterval = setInterval(drawPage, 5000); // 5 secs
+  var drawInterval = setInterval(drawPage, 300000); // 5 mins
+//  var drawInterval = setInterval(drawPage, 5000); // 5 secs
 
   //Iterater over reservations
   var activeInterval = setInterval(loopReservations(), 5000); // 5 secs
