@@ -302,7 +302,7 @@ class Reservations
   {
     $parts = parse_url($imageUrl);
     //TODO: fetch from config
-    $parts['hosts'] = 'dev1.fmgegypt.net';
+    $parts['host'] = 'dev1.fmgegypt.net';
     $parts['path'] = '/hsp/Web' . $parts['path'];
     return $this->unparse_url($parts);
   }
