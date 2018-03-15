@@ -36,6 +36,14 @@ class Controller
     );
   }
 
+  public function summaryAjaxAction()
+  {
+    $Reservations = new Reservations();
+    return array(
+      'reservations' => $Reservations->getCurrentReservations()
+    );
+  }
+
   /**
    * 
    * @param type $arg
@@ -81,13 +89,30 @@ class Controller
   public function roomAction($arg)
   {
     $roomName = str_replace("_", " ", $arg[0]);
-    $htmlTitle = $roomName;
+    $title = $roomName;
     $Reservations = new Reservations();
 
     $currentReservations = $Reservations->getCurrentReservationByRoom($roomName);
     return array(
-      'htmlTitle' => $roomName,
-      'roomName' => $roomName,
+      'title' => $roomName,
+      'reservations' => $currentReservations
+    );
+  }
+
+  /**
+   * 
+   * @param type $arg
+   * @return type
+   */
+  public function roomAjaxAction($arg)
+  {
+    $roomName = str_replace("_", " ", $arg[0]);
+    $title = $roomName;
+    $Reservations = new Reservations();
+
+    $currentReservations = $Reservations->getCurrentReservationByRoom($roomName);
+    return array(
+      'title' => $roomName,
       'reservations' => $currentReservations
     );
   }
@@ -118,15 +143,6 @@ class Controller
     } else {
       echo "No Action to run";
     }
-  }
-
-  public function summaryAjaxAction()
-  {
-    $Reservations = new Reservations();
-    $htmlTitle = "Summary";
-    return array(
-      'reservations' => $Reservations->getCurrentReservations()
-    );
   }
 
   public function sampleAction()

@@ -28,6 +28,7 @@ The following content was designed & implemented under AlexSeif.com
   /*margin: 0 auto;*/
   /*width: 400px;*/
   height: 125px;
+  border: 1px solid #363435;
   -webkit-transition: all 1000ms;
   -moz-transition: all 1000ms;
   -ms-transition: all 1000ms;
@@ -58,6 +59,7 @@ The following content was designed & implemented under AlexSeif.com
   background: #fff;
   border: 1px solid #fff;
   top: 15px;
+  vertical-align: middle;
 }
 .middle-col{
   width: calc(100% - 202px);
@@ -67,7 +69,8 @@ The following content was designed & implemented under AlexSeif.com
   border-radius: 4px 0 0 4px;
   left: 1px;
 }
-.left-col img {
+
+.right-col img {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -78,24 +81,27 @@ The following content was designed & implemented under AlexSeif.com
 .right-col {
   border-radius: 0 4px 4px 0;
 }
-
+.left-col button{
+  height: 100%;
+  max-width: 100%;
+}
 .colored-button .btn{
   margin-bottom: 5px;
   color: #000; 
   font-size: 1.5em;
 }
-.colored-button .blue, 
-.colored-button .blue:hover { 
+.blue, 
+.blue:hover { 
   background: #01BCFF; 
   color: #fff;
 }
-.colored-button .green,
-.colored-button .green:hover { 
+.green,
+.green:hover { 
   background: #1bb556; 
   color: #fff;
 }
-.colored-button .red,
-.colored-button .red:hover { 
+.red,
+.red:hover { 
   background: #ff4f0f; 
   color: #fff;
 }

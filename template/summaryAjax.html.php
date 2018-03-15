@@ -1,7 +1,7 @@
 <?php
 if (is_array($reservations)) {
   ?>
-  <div id="example" class="section page show appear flow row">
+  <div class="section page show appear flow row">
     <?php
     foreach ($reservations as $reservation) {
       include 'reservation.html.php';

@@ -1,8 +1,9 @@
 <!-- sample reservation -->
-<div class="event-container col-md-5 col-md-push-1" data-id="" data-start="" data-end="">
+<div class="event-container col-md-9 col-md-push-1" data-id="" data-start="" data-end="">
   <div class="left-col">
-    <img src="images/tmp/Logobit_digital_black_large.png" 
-         alt="Uber logo"  class="img-responsive" />
+    <button class="btn red"><strong>Building</strong> 
+      Building Name</button>
+
   </div>
   <div id="box-button" class="box middle-col">
     <h2>
@@ -11,16 +12,19 @@
         Start - End
       </small>
     </h2>
-    <div class="colored-button text-center">
+    <div class="colored-button pull-left">
       <button class="btn"><strong>Room</strong>
         Room Name</button>
       <button class="btn"><strong>Floor</strong>
         Floor Name</button>
-      <button class="btn red"><strong>Building</strong> 
-        Building Name</button>
+
     </div>
-    <div class="text-center">
+    <div class="pull-right">
       Reservation Description
     </div>
+  </div>
+  <div class="right-col">
+    <img src="images/tmp/Logobit_digital_black_large.png" 
+         alt="Uber logo"  class="img-responsive" />
   </div>
 </div>

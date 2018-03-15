@@ -47,11 +47,9 @@ class Reservations
   {
     global $reservations;
 
-    $username = 'api';
-    $password = 'api$api';
-    $username = 'api';
-    $password = 'api$api';
-    $this->apiClient = new bookedapiclient($username, $password);
+//    $username = 'api';
+//    $password = 'api$api';
+    $this->apiClient = new bookedapiclient(BOOKEDAPIUSER, BOOKEDAPIPASSWORD);
     $this->timezone = new \DateTimeZone(YOURTIMEZONE);
     $this->now = new \DateTime();
     $this->reservations = $reservations;
@@ -72,20 +70,27 @@ class Reservations
 
   function fetchReservations()
   {
-    $this->reservations = $this->apiClient->getReservation();
-    foreach ($this->reservations['reservations'] as $key => $reservation) {
-      $reservation['startDate'] = new \DateTime($reservation['startDate']);
-      $reservation['startDate']->setTimezone($this->timezone);
-      $reservation['endDate'] = new \DateTime($reservation['endDate']);
-      $reservation['endDate']->setTimezone($this->timezone);
-      $this->reservations['reservations'][$key]['start'] = $reservation['startDate']->format(TIME_FORMAT);
-      $this->reservations['reservations'][$key]['end'] = $reservation['endDate']->format(TIME_FORMAT);
-      $this->reservations['reservations'][$key]['startTimestamp'] = $reservation['startDate']->getTimestamp();
-      $this->reservations['reservations'][$key]['endTimestamp'] = $reservation['endDate']->getTimestamp();
+    $getReservations = $this->apiClient->getReservation();
+
+    foreach ($getReservations['reservations'] as $key => $reservation) {
+      $res = $this->apiClient->getReservation($reservation['referenceNumber']);
+      if (count($res['attachments']) > 0) {
+        $reservation['image'] = $this->fixImageUrl($res['attachments'][0]['url']);
+      }
+      $startDate = new \DateTime($reservation['startDate']);
+      $startDate->setTimezone($this->timezone);
+      $endDate = new \DateTime($reservation['endDate']);
+      $endDate->setTimezone($this->timezone);
+      $reservation['start'] = $startDate->format(TIME_FORMAT);
+      $reservation['end'] = $endDate->format(TIME_FORMAT);
+      $reservation['startTimestamp'] = $startDate->getTimestamp();
+      $reservation['endTimestamp'] = $endDate->getTimestamp();
+      $reservations['reservations'][] = $reservation;
     }
+
     //Clean up before save
     $this->reservationsFile = fopen("data/reservations.json", "w") or die("Unable to open file!");
-    fwrite($this->reservationsFile, json_encode($this->reservations));
+    fwrite($this->reservationsFile, json_encode($reservations));
     fclose($this->reservationsFile);
   }
 
@@ -141,23 +146,24 @@ class Reservations
     $this->floorTitle = $floorTitle;
   }
 
+  function getReservation($referenceNumber)
+  {
+    return $this->apiClient->getReservation($referenceNumber);
+  }
+
   function getCurrentReservationByRoom($roomName)
   {
     $currentReservations = null;
-    if (is_array($this->reservations)) {
-      foreach ($this->reservations as $reservation) {
+    if (is_array($this->reservations['reservations'])) {
+      foreach ($this->reservations['reservations'] as $reservation) {
         if ($reservation['resourceName'] == $roomName) {
           $reservationStart = new \DateTime($reservation['startDate']);
           $reservationEnd = new \DateTime($reservation['endDate']);
-          if (($this->now->getTimestamp() >= $reservationStart->getTimestamp()) &&
-              ($this->now->getTimestamp() < $reservationEnd->getTimestamp())) {
+          if (($this->now >= $reservationStart) ||
+              ($this->now >= $reservationEnd)) {
 
             $reservation['startDate'] = new \DateTime($reservation['startDate']);
-            $reservation['startDate']->setTimezone($this->timezone);
             $reservation['endDate'] = new \DateTime($reservation['endDate']);
-            $reservation['endDate']->setTimezone($this->timezone);
-//            $reservation['startDate'] = $reservation['startDate']->format('h:i A');
-//            $reservation['endDate'] = $reservation['endDate']->format('h:i A');
 
             $currentReservations[] = $reservation;
           }
@@ -178,8 +184,8 @@ class Reservations
         $days = $reservationStart->diff($this->now);
         if (0 == $days->days) {
           if (
-              ($this->now->getTimestamp() <= $reservationStart->getTimestamp()) ||
-              ($this->now->getTimestamp() >= $reservationEnd->getTimestamp())
+              ($this->now <= $reservationStart) ||
+              ($this->now <= $reservationEnd)
           ) {
 
             $reservation['startDate'] = new \DateTime($reservation['startDate']);
@@ -226,8 +232,8 @@ class Reservations
       foreach ($this->reservations['reservations'] as $reservation) {
         $reservationStart = new \DateTime($reservation['startDate']);
         $reservationEnd = new \DateTime($reservation['endDate']);
-        if (($this->now->getTimestamp() >= $reservationStart->getTimestamp()) &&
-            ($this->now->getTimestamp() < $reservationEnd->getTimestamp())) {
+        if (($this->now >= $reservationStart) &&
+            ($this->now >= $reservationEnd)) {
           $resource = $this->getApiClient()->getResource(intval($reservation['resourceId']));
           $arrowDirection = NULL;
           $inFloor = FALSE;
@@ -266,6 +272,37 @@ class Reservations
       }
     }
     return $currentReservations;
+  }
+
+  /**
+   * TODO: move to utility class or functions file
+   * @param type $parsed_url
+   * @return type
+   */
+  function unparse_url($parsed_url)
+  {
+    $scheme = isset($parsed_url['scheme']) ? $parsed_url['scheme'] . '://' : '';
+    $host = isset($parsed_url['host']) ? $parsed_url['host'] : '';
+    $port = isset($parsed_url['port']) ? ':' . $parsed_url['port'] : '';
+    $user = isset($parsed_url['user']) ? $parsed_url['user'] : '';
+    $pass = isset($parsed_url['pass']) ? ':' . $parsed_url['pass'] : '';
+    $pass = ($user || $pass) ? "$pass@" : '';
+    $path = isset($parsed_url['path']) ? $parsed_url['path'] : '';
+    $query = isset($parsed_url['query']) ? '?' . $parsed_url['query'] : '';
+    $fragment = isset($parsed_url['fragment']) ? '#' . $parsed_url['fragment'] : '';
+    return "$scheme$user$pass$host$port$path$query$fragment";
+  }
+
+  /**
+   * TODO: move to utility class
+   * @param type $imageUrl
+   * @return type
+   */
+  function fixImageUrl($imageUrl)
+  {
+    $parts = parse_url($imageUrl);
+    $parts['path'] = '/hsp/Web' . $parts['path'];
+    return $this->unparse_url($parts);
   }
 
 }

@@ -2,6 +2,41 @@
  * The following content was designed & implemented under AlexSeif.com
  */
 
+function init() {
+  // Prevent touch scroll
+  document.body.addEventListener('touchmove', function (event) {
+    event.preventDefault();
+  }, false);
+  attachButtons();
+//  function clickIE() {
+//    if (document.all) {  //document.all specific to Internet Explorer  
+//      return false;
+//    }
+//  }
+//  function clickAll(e) {
+//    if (document.layers || (document.getElementById && !document.all)) {  //document.layers specific to Netscape
+//      if (e.which == 2 || e.which == 3) {
+//        return false;
+//      }
+//    }
+//  }
+//  if (document.layers) {
+//    document.captureEvents(Event.MOUSEDOWN);
+//    document.onmousedown = clickAll;
+//  } else {
+//    document.onmouseup = clickAll;
+//    document.oncontextmenu = clickIE;
+//  }
+//
+//  document.oncontextmenu = new Function("return false");
+}
+
+function attachButtons() {
+  Waves.attach('.btn', ['waves-button']);
+  Waves.init();
+
+}
+
 function clock() {
   var momentNow = moment();
   $('#fsdate').html(momentNow.format('dddd, MMMM Do YYYY'));
@@ -18,6 +53,7 @@ function loadResources() {
     }
   });
 }
+
 function loadReservations() {
   var $data = $.ajax({
     url: "reservations.json"
@@ -28,14 +64,16 @@ function loadReservations() {
   });
 }
 
-function drawSummaryReservations() {
+function drawPage() {
   $content = $('#content');
   $content.append('<div class="loader"></div>');
+  ajaxUrl = window.location.href.split('?')[0] + 'Ajax?' + window.location.href.split('?')[1];
   var $data = $.ajax({
-    url: "summaryAjax"
+    url: ajaxUrl
   }).done(function (data) {
     //TODO animate entrance
     $content.html(data);
+    attachButtons();
   });
 }
 
@@ -43,7 +81,12 @@ function loopReservations() {
 
 }
 
+function cronAction() {
+  $.ajax('cron');
+}
+
 $(document).ready(function () {
+  init();
   // Clock
   var clockInterval = setInterval(clock, 1000);
 
@@ -66,13 +109,14 @@ $(document).ready(function () {
   //load Reservations
   loadReservations();
 
-// Draw Reservations
-//  var drawInterval = setInterval(drawSummaryReservations, 300000);
-  var drawInterval = setInterval(drawSummaryReservations, 5000);
+// Draw Reservations 
+//  var drawInterval = setInterval(drawPage, 300000); // 5 mins
+  var drawInterval = setInterval(drawPage, 5000); // 5 secs
 
   //Iterater over reservations
-  var activeInterval = setInterval(loopReservations(), 4000);
+  var activeInterval = setInterval(loopReservations(), 5000); // 5 secs
 
+  var cron = setInterval(cronAction(), 5000); // 5 secs
 
 //  $("#search").autocomplete({
 //    source: function (request, response) {
