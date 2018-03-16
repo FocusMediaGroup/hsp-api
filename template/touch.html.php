@@ -9,7 +9,6 @@ include_once 'header.html.php';
 <div class="container-fluid content">
   <!-- Page Content -->
   <div id="content">
-    <div class="search-loader"></div>
   </div>
 </div>
 <!--<div class="line"></div>-->
