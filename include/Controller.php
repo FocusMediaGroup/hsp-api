@@ -44,6 +44,15 @@ class Controller
     );
   }
 
+  public function searchAjaxAction($arg)
+  {
+
+    $Reservations = new Reservations();
+    return array(
+      'reservations' => $Reservations->search($arg['search'])
+    );
+  }
+
   /**
    * 
    * @param type $arg

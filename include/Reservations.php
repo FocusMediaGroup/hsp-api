@@ -47,8 +47,6 @@ class Reservations
   {
     global $reservations;
 
-//    $username = 'api';
-//    $password = 'api$api';
     $this->apiClient = new bookedapiclient(BOOKEDAPIUSER, BOOKEDAPIPASSWORD);
     $this->timezone = new \DateTimeZone(YOURTIMEZONE);
     $this->now = new \DateTime();
@@ -71,7 +69,6 @@ class Reservations
   function fetchReservations()
   {
     $getReservations = $this->apiClient->getReservation();
-
     foreach ($getReservations['reservations'] as $key => $reservation) {
       $res = $this->apiClient->getReservation($reservation['referenceNumber']);
       if (count($res['attachments']) > 0) {
@@ -86,8 +83,11 @@ class Reservations
       $reservation['startTimestamp'] = $startDate->getTimestamp();
       $reservation['endTimestamp'] = $endDate->getTimestamp();
       $reservations['reservations'][] = $reservation;
+      $arraySearch = array_search($reservation['title'], $reservations['title']);
+      if ((false === $arraySearch) || !count($reservations['title'])) {
+        $reservations['title'][] = $reservation['title'];
+      }
     }
-
     //Clean up before save
     $this->reservationsFile = fopen("data/reservations.json", "w") or die("Unable to open file!");
     fwrite($this->reservationsFile, json_encode($reservations));
@@ -222,6 +222,17 @@ class Reservations
       }
     }
     return $currentReservations;
+  }
+
+  function search($search)
+  {
+    $reservations = [];
+    $current = $this->getCurrentReservations();
+    foreach ($current as $reservation) {
+      if (strtolower($search) == strtolower($reservation['title']))
+        $reservations[] = $reservation;
+    }
+    return $reservations;
   }
 
   function getCurrentReservationsByFloor($floor)

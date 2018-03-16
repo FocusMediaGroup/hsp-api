@@ -12,7 +12,6 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
-    <link href="assets/plugins/jquery-ui-1.12.1/custom.css" rel="stylesheet" />
     <!--<link href="assets/plugins/Keyboard-master/css/keyboard.css" rel="stylesheet" type="text/css"/>-->
     <link href="assets/plugins/Keyboard-master/css/keyboard-dark.css" rel="stylesheet" type="text/css"/>
     <link href="assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>
@@ -20,8 +19,6 @@
     <!-- Custom CSS -->
     <link href="css/colors.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/wip.css" rel="stylesheet">
-    <link href="css/reservation.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

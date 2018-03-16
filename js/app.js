@@ -1,9 +1,8 @@
 /* 
  * The following content was designed & implemented under AlexSeif.com
  */
-
 function init() {
-  // Prevent touch scroll
+// Prevent touch scroll
   document.body.addEventListener('touchmove', function (event) {
     event.preventDefault();
   }, false);
@@ -34,7 +33,6 @@ function init() {
 function attachButtons() {
   Waves.attach('.btn', ['waves-button']);
   Waves.init();
-
 }
 
 function clock() {
@@ -46,6 +44,7 @@ function clock() {
 
 var Resources = [];
 var Reservations = [];
+var ReservationTitles = [];
 function loadResources() {
   $.ajax('resources.json').done(function (data) {
     for (var key in data.resources) {
@@ -56,10 +55,13 @@ function loadResources() {
 
 function loadReservations() {
   var $data = $.ajax({
-    url: "reservations.json"
+    url: "data/reservations.json"
   }).done(function (data) {
     for (var key in data.reservations) {
       Reservations[key] = data.reservations[key];
+    }
+    for (var tkey in data.title) {
+      ReservationTitles[tkey] = data.title[tkey];
     }
   });
 }
@@ -71,7 +73,20 @@ function drawPage() {
   var $data = $.ajax({
     url: ajaxUrl
   }).done(function (data) {
-    //TODO animate entrance
+//TODO animate entrance
+    $content.html(data);
+    attachButtons();
+  });
+}
+function search() {
+  $content = $('#content');
+  $content.append('<div class="search-loader"></div>');
+  $search = $('#search-me').val().toUpperCase();
+  var $data = $.ajax({
+    url: 'searchAjax',
+    data: {'search': $search}
+  }).done(function (data) {
+//TODO animate entrance
     $content.html(data);
     attachButtons();
   });
@@ -85,11 +100,10 @@ function cronAction() {
   $.ajax('cron');
 }
 
-$(document).ready(function () {
+$(function () {
   init();
   // Clock
   var clockInterval = setInterval(clock, 1000);
-
   // Keyboard
   $('#custom-search-input input').keyboard({
     theme: 'default',
@@ -102,13 +116,10 @@ $(document).ready(function () {
 // se ocultara o mostrara el keyboard segun corresponda.
     trigger: '#buttom1'
   });
-
   // load Resources
   loadResources();
-
   //load Reservations
   loadReservations();
-
 // Draw Reservations 
   var drawInterval = setInterval(drawPage, 300000); // 5 mins
 //  var drawInterval = setInterval(drawPage, 5000); // 5 secs
@@ -118,24 +129,50 @@ $(document).ready(function () {
 
   var cron = setInterval(cronAction(), 5000); // 5 secs
 
-//  $("#search").autocomplete({
-//    source: function (request, response) {
-//      $.ajax({
-//        url: "reservations",
-//        dataType: "jsonp",
-//        data: {
-//          term: request.term
-//        },
-//        success: function (data) {
-//          response(data);
-//        }
-//      });
-//    },
-//    minLength: 2,
-//    select: function (event, ui) {
-//      log("Selected: " + ui.item.value + " aka " + ui.item.id);
-//    }
-//  });
+  $('#search-me').keyboard({
+    usePreview: false,
+    autoAccept: true,
+    autoAccept: true,
+    accepted: search
+  })
+          .autocomplete({
+            source: ReservationTitles,
+            appendTo: "#results",
+            select: function (event, ui) {
+              $(this).data().keyboard.accept();
+            },
+            _renderMenu: function (ul, items) {
+              var that = this;
+              $.each(items, function (index, item) {
+                that._renderItemData(ul, item);
+              });
+              $(ul).find("li:odd").addClass("odd");
+              console.log('cool');
+            }
+          })
+          .addAutocomplete({
+            // add autocomplete window positioning
+            // options here (using position utility)
+            position: {
+              of: '#results',
+              my: 'center middle',
+              at: 'center middle',
+              collision: 'flip'
+            }
+          })
+// activate the typing extension
+          .addTyping({
+            showTyping: true,
+            delay: 250
+          });
+  $(".mat-input").focus(function () {
+    $(this).parent().addClass("is-active is-completed");
+  });
+  $(".mat-input").focusout(function () {
+    if ($(this).val() === "")
+      $(this).parent().removeClass("is-completed");
+    $(this).parent().removeClass("is-active");
+  });
 });
 
 

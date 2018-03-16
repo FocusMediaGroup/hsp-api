@@ -2,7 +2,7 @@
 include_once 'head.html.php';
 include_once 'header.html.php';
 ?>
-<div class="container-fluid content" >
+<div class="container-fluid content">
   <!-- Page Content -->
   <button id="basic-demo" class="waves-effect waves-button waves-light">Basic Demo</button>
   <div id="content">
