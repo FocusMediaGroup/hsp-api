@@ -326,6 +326,9 @@ div#keyboard{
 #search{
   position: fixed;
   bottom: 40%;
+  left: 50%;
+  margin-left: -37.5%;
+  width: 75%;
 }
 #custom-search-input{
   padding: 3px;
