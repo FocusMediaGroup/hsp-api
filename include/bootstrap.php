@@ -38,13 +38,14 @@ extract($Controller->run($App->getPath(), $App->getArg()));
  */
 $scripts = array(
   "js/jquery.js",
+  "assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js",
   "js/jquery.fittext.js",
   "js/moment.min.js",
   "js/bootstrap.min.js",
   "assets/plugins/Keyboard-master/js/jquery.keyboard.js",
   "assets/plugins/Keyboard-master/js/jquery.mousewheel.js",
-  "assets/plugins/Keyboard-master/js/jquery.keyboard.extension-extender.js",
   "assets/plugins/Keyboard-master/js/jquery.keyboard.extension-typing.js",
+  "assets/plugins/Keyboard-master/js/jquery.keyboard.extension-autocomplete.js",
   "assets/plugins/waves/waves.min.js",
   "assets/plugins/snarl/snarl.min.js",
   "js/app.js"

@@ -12,7 +12,8 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
-    <link href="assets/plugins/Keyboard-master/css/keyboard.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/jquery-ui-1.12.1/custom.css" rel="stylesheet" />
+    <!--<link href="assets/plugins/Keyboard-master/css/keyboard.css" rel="stylesheet" type="text/css"/>-->
     <link href="assets/plugins/Keyboard-master/css/keyboard-dark.css" rel="stylesheet" type="text/css"/>
     <link href="assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>
     <link href="assets/plugins/snarl/snarl.min.css" rel="stylesheet" type="text/css"/>

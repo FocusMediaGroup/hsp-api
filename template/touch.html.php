@@ -69,10 +69,19 @@ include_once 'header.html.php';
     .ui-keyboard{
       bottom: calc(40% - 240px);
     }
+    #results {
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      margin-left: -37.5%;
+      width: 75%;
+      height: 600px;
+    }
   </style>
   <!-- Page Content -->
   <div class="line"></div>
   <div id="coords"></div>
+  <div id="results"></div>
 </div>
 <!-- Search-->
 <div id="search">

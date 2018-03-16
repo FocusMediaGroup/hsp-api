@@ -27,23 +27,60 @@ foreach ($scripts as $script) {
   })
 </script>
 <script>
+  $(function () {
 
-  $('#search-me').keyboard({
-    usePreview: false,
-    acceptValid: true,
-    validate: function (kb, val) {
-        return val.length > 3;
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+
+    $('#search-me').keyboard({
+      usePreview: false,
+      autoAccept: true,
+//      validate: function (kb, val) {
+//        return val.length > 3;
+//      },
+    })
+            .autocomplete({
+    source: availableTags
+  })
+  .addAutocomplete({
+    // add autocomplete window positioning
+    // options here (using position utility)
+    position: {
+      of: '#results',
+      my: 'center top',
+      at: 'center top',
+      collision: 'flip'
     }
-})
+  })
 // activate the typing extension
-.addTyping({
-    showTyping: true,
-    delay: 250
-}).addExtender({
-    layout: 'numpad',
-    showing: false,
-    reposition: true
-});
+            .addTyping({
+              showTyping: true,
+              delay: 250
+            });
+
+  });
 </script>
 </body>
 </html>
