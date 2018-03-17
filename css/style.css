@@ -690,9 +690,8 @@ header .engraved {
   height: 25px;
 }
 #touch-icon{
-  position: fixed;
-  bottom: 0;
-  right: 0;
+  position: relative;
+  left: 40%;
 }
 
 .mat-label {

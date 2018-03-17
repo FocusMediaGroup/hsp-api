@@ -1,4 +1,5 @@
 <?php
+
 include_once 'head.html.php';
 include_once 'header.html.php';
 ?>
@@ -20,13 +21,13 @@ include_once 'header.html.php';
     <label for="search-me" class="mat-label">Search me</label>
     <input type="text" class="mat-input" id="search-me">
   </div>
+  <img src="images/Hand-Touch-icon-white.png" alt=""
+       id="touch-icon"
+       width="100"
+       style="opacity: 1;"
+       />
 </div>
 <!-- /.Search-->
-<img src="images/Hand-Touch-icon-black.png" alt=""
-     id="touch-icon"
-     width="100"
-     style="opacity: 0.5;"
-     />
 <div class="row custom-btns hide">
   <div class="col-md-2">
     <button class="btn btn-block bg-orange">GrEEK</button>
