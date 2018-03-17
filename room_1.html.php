@@ -27,7 +27,7 @@
         <?php
       }
     } else {
-      include_once 'room_ad.html.php';
+      include_once 'ad.html.php';
     }
     ?>
   </div>
