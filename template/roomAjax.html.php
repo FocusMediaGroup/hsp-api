@@ -27,7 +27,7 @@ if (is_array($reservations)) {
             <button class="btn"><strong>Room</strong>
               <?php print_r($reservation['resourceName']); ?></button><br/>
             <button class="btn"><strong>Floor</strong>
-              Floor <?php //print_r($reservation['floorTitle']);                   ?></button>
+              Floor <?php //print_r($reservation['floorTitle']);                    ?></button>
           </div>
         </div>
         <div class="right-col">

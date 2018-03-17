@@ -5,18 +5,20 @@
     </button>
   </div>
   <div id="box-button" class="box middle-col">
-    <h2>
-      <?php print_r($reservation['title']); ?>
-      <small class="pull-right">
-        <?php print_r($reservation['start']); ?> - 
-        <?php print_r($reservation['end']); ?>
-      </small>
-    </h2>
+    <a href="room?<?php print_r($reservation['resourceName']); ?>">
+      <h2>
+        <?php print_r($reservation['title']); ?>
+        <small class="pull-right">
+          <?php print_r($reservation['start']); ?> - 
+          <?php print_r($reservation['end']); ?>
+        </small>
+      </h2>
+    </a>
     <div class="colored-button pull-left">
       <button class="btn"><strong>Room</strong>
         <?php print_r($reservation['resourceName']); ?></button>
       <button class="btn"><strong>Floor</strong>
-        Floor <?php //print_r($reservation['floorTitle']);?></button>
+        Floor <?php //print_r($reservation['floorTitle']);  ?></button>
     </div>
     <div class="pull-right">
       <?php //print_r($reservation['arrowDirection']); ?>
