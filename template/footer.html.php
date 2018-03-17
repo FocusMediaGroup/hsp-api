@@ -24,11 +24,11 @@
 <?php
 if ($height > 15) {
   ?>
-      $(".fit-text").fitText(1);
+//      $(".fit-text").fitText(1);
   <?php
 } else {
   ?>
-      $(".fit-text").fitText(2.4);
+//      $(".fit-text").fitText(2.4);
   <?php
 }
 ?>

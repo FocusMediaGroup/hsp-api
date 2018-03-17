@@ -8,11 +8,10 @@
 <div class="container-fluid">
   <?php
   if (is_array($currentReservations)) {
-    $height = floor(65 / count($currentReservations)) / 2;
+//    $height = floor(65 / count($currentReservations)) / 2;
     ?>
     <style>
       .table > tbody > tr > td {
-        height: <?php echo (15 > $height) ? $height : 15; ?>vh;
       }
     </style>
     <!-- Page Content -->
