@@ -74,6 +74,7 @@ class Reservations
       if (count($res['attachments']) > 0) {
         $reservation['image'] = $this->fixImageUrl($res['attachments'][0]['url']);
       }
+      $reservation['attachments'] = $res['attachments'];
       $startDate = new \DateTime($reservation['startDate']);
       $startDate->setTimezone($this->timezone);
       $endDate = new \DateTime($reservation['endDate']);
@@ -312,9 +313,9 @@ class Reservations
   function fixImageUrl($imageUrl)
   {
     $parts = parse_url($imageUrl);
-    //TODO: fetch from config
+    parse_str($parts['query'], $image);
     $parts['host'] = 'dev1.fmgegypt.net';
-    $parts['path'] = '/hsp/Web' . $parts['path'];
+    $parts['path'] = '/hsp/uploads/reservation/' . $image['afid'] . '.png';
     return $this->unparse_url($parts);
   }
 

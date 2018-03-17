@@ -6,6 +6,15 @@ include_once 'header.html.php';
 <style>
   /*http://fian.my.id/Waves/#examples*/
   /*https://hoxxep.github.io/snarl/*/
+  #content{
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    margin-left: -37.5%;
+    width: 75%;
+    height: 10%;
+    z-index: 100;
+  }
 </style>
 <div class="container-fluid content">
   <!-- Page Content -->
