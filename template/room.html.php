@@ -25,5 +25,10 @@ include_once 'header.html.php';
     <?php include_once 'roomAjax.html.php'; ?>
   </div>  
 </div>
+<div class="text-center" 
+     style="font-size: 2em;position: absolute; bottom: 10%; left: 20%;">
+  <a href="touch"><span class="glyphicon glyphicon-home text-white" 
+                        ></span></a>
+</div>
 <!-- /.container-fluid -->
 <?php include_once 'footer.html.php'; ?>

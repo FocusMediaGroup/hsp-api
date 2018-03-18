@@ -1,3 +1,6 @@
+<script>
+  var touch = <?php print_r($config['touch'] ? "true" : "false"); ?>;
+</script>
 <?php
 foreach ($scripts as $script) {
   ?>
@@ -5,7 +8,7 @@ foreach ($scripts as $script) {
   <?php
 }
 ?>
-<script>
+  <script>
   $('#basic-demo').click(function () {
     Snarl.addNotification({
       title: 'Custom Timeouts',

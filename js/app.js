@@ -78,6 +78,12 @@ function drawPage() {
     attachButtons();
   });
 }
+function drawSearch() {
+  if (!window.location.href.split('?')[0].endsWith('touch')) {
+    window.location.href = 'touch';
+  }
+}
+
 function search() {
   $content = $('#content');
   $content.append('<div class="search-loader"></div>');
@@ -121,8 +127,12 @@ $(function () {
   //load Reservations
   loadReservations();
 // Draw Reservations 
-  var drawInterval = setInterval(drawPage, 300000); // 5 mins
+  if (touch) {
+    var drawInterval = setInterval(drawSearch, 10000); // 5 mins
+  } else {
+    var drawInterval = setInterval(drawPage, 300000); // 5 mins
 //  var drawInterval = setInterval(drawPage, 5000); // 5 secs
+  }
 
   //Iterater over reservations
   var activeInterval = setInterval(loopReservations(), 5000); // 5 secs
@@ -173,7 +183,7 @@ $(function () {
       $(this).parent().removeClass("is-completed");
     $(this).parent().removeClass("is-active");
   });
-  $('#search').click(function(){
+  $('#search').click(function () {
     $('#search-me').focus();
   });
 });

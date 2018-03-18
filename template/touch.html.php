@@ -36,6 +36,11 @@ include_once 'header.html.php';
        style="opacity: 1;"
        />
 </div>
+<div class="text-center" 
+     style="font-size: 2em;position: absolute; bottom: 10%; left: 20%;">
+  <a href="touch"><span class="glyphicon glyphicon-refresh text-white" 
+                        ></span></a>
+</div>
 <!-- /.Search-->
 <div class="row custom-btns hide">
   <div class="col-md-2">
