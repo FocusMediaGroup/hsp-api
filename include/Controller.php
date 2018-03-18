@@ -159,4 +159,34 @@ class Controller
     return array('title' => 'Sample');
   }
 
+  public function importAction()
+  {
+    global $resourceByName;
+
+    $row = 1;
+    $postReservations = [];
+    $reservation = array();
+    if (($handle = fopen("data/data.csv", "r")) !== FALSE) {
+      while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        $num = count($data);
+        $row++;
+        $resourceName = trim($data[0]);
+        $reservation['resourceId'] = array_search($resourceName, $resourceByName);
+        if (FALSE === $reservation['resourceId']) {
+          throw new Exception("Cannot find resource " . $resourceName);
+        }
+        $reservation['title'] = trim($data[2]);
+        if ($reservation['title']) {
+          //lets rock and roll
+          $reservation['startDateTime'] = "2018-03-19T00:00:00+0200";
+          $reservation['endDateTime'] = "2018-04-19T00:00:00+0200";
+          $postReservations[] = $reservation;
+        }
+      }
+      fclose($handle);
+    }
+    $Reservations = new Reservations();
+    $Reservations->postResrvations($postReservations);
+  }
+
 }

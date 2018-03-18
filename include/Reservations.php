@@ -4,6 +4,7 @@
  * The following content was designed & implemented under AlexSeif.com
  */
 include('bookedapi.php');
+include('ReservationObject.php');
 
 /**
  * Description of Reservations
@@ -48,6 +49,7 @@ class Reservations
     global $reservations;
 
     $this->apiClient = new bookedapiclient(BOOKEDAPIUSER, BOOKEDAPIPASSWORD);
+    $this->apiClient->authenticate(true);
     $this->timezone = new \DateTimeZone(YOURTIMEZONE);
     $this->now = new \DateTime();
     $this->reservations = $reservations;
@@ -55,8 +57,6 @@ class Reservations
 
   function fetchData()
   {
-
-    $this->apiClient = new bookedapiclient($username, $password);
     $this->fetchResources();
     $this->fetchReservations();
   }
@@ -110,8 +110,8 @@ class Reservations
       foreach ($resource['customAttributes'] as $customAttribute) {
         $resources['resources'][$key][$customAttribute['id']] = $customAttribute['value'];
       }
-      $resources['resources'][$resource['resourceId']] = $resource;
-      unset($resources['resources'][$key]);
+//      $resources['resources'][$resource['resourceId']] = $resource;
+//      unset($resources['resources'][$key]);
     }
     //Clean up before save
     $resourcesFile = fopen("data/resources.json", "w") or die("Unable to open file!");
@@ -319,6 +319,21 @@ class Reservations
     $parts['host'] = 'dev1.fmgegypt.net';
     $parts['path'] = '/hsp/uploads/reservation/' . $image['afid'] . '.png';
     return $this->unparse_url($parts);
+  }
+
+  function postResrvations($reservations)
+  {
+    $results = [];
+    foreach ($reservations as $reservation) {
+      $reservationObject = new ReservationObject(
+          $reservation['title']
+          , $reservation['resourceId']
+          , $reservation['startDateTime']
+          , $reservation['endDateTime']);
+      var_dump($reservationObject);
+      $result = $this->apiClient->createReservation($reservationObject);
+      var_dump($result);
+    }
   }
 
 }

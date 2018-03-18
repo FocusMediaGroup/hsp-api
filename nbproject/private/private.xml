@@ -3,17 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/srv/www/hsp/api/include/Reservations.php</file>
-            <file>file:/srv/www/hsp/api/template/footer.html.php</file>
-            <file>file:/srv/www/hsp/api/include/bookedapi.php</file>
-            <file>file:/srv/www/hsp/api/include/bookedapiconfig.php</file>
-            <file>file:/srv/www/hsp/api/room_1.html.php</file>
-            <file>file:/srv/www/hsp/api/css/style.css</file>
-            <file>file:/srv/www/hsp/api/room_1.php</file>
-            <file>file:/srv/www/hsp/api/include/bootstrap.php</file>
-            <file>file:/srv/www/hsp/api/summury_1.html.php</file>
-            <file>file:/srv/www/hsp/api/summury_1.php</file>
-            <file>file:/srv/www/hsp/api/template/head.html.php</file>
+            <file>file:/srv/www/hsp/api/include/Controller.php</file>
         </group>
     </open-files>
 </project-private>
