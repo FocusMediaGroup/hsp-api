@@ -25,7 +25,7 @@ include_once 'header.html.php';
 <!--<div id="coords"></div>-->
 <div id="results"></div>
 <!-- Search-->
-<div id="search">
+<div id="search" class="text-center">
   <div class="mat-div">
     <label for="search-me" class="mat-label">Search me</label>
     <input type="text" class="mat-input" id="search-me">

@@ -1,5 +1,5 @@
 <?php
-if (is_array($reservations)) {
+if (is_array($reservations) && count($reservations)) {
   ?>
   <div class="section page show appear flow row">
     <?php
@@ -8,8 +8,10 @@ if (is_array($reservations)) {
     }
     ?>
   </div>
-  <?php
-} else {
-  include_once 'ad.html.php';
-}
+<?php } else {
+  ?>
+  <div class="text-center text-white">
+    <h1>No results found</h1>
+  </div>
+<?php }
 ?>

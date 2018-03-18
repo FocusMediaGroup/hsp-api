@@ -173,6 +173,9 @@ $(function () {
       $(this).parent().removeClass("is-completed");
     $(this).parent().removeClass("is-active");
   });
+  $('#search').click(function(){
+    $('#search-me').focus();
+  });
 });
 
 

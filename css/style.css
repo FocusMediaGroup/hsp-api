@@ -691,7 +691,6 @@ header .engraved {
 }
 #touch-icon{
   position: relative;
-  left: 40%;
 }
 
 .mat-label {
@@ -700,6 +699,7 @@ header .engraved {
   transform: translateY(100px);
   color: #e2e2e2;
   transition: all 0.5s;
+  text-align: left;
 }
 
 .mat-input.ui-widget-content {
