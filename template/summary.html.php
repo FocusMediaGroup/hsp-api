@@ -10,4 +10,11 @@ include_once 'header.html.php';
   </div>  
 </div>
 <!-- /.container-fluid -->
+<?php if ($config['touch']) { ?>
+  <div class="text-center" 
+       style="font-size: 2em;position: absolute; bottom: 10%; left: 20%;">
+    <a href="touch"><span class="glyphicon glyphicon-search text-white" 
+                          ></span></a>
+  </div>
+<?php } ?>
 <?php include_once 'footer.html.php'; ?>
