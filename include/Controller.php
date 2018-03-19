@@ -61,7 +61,7 @@ class Controller
   public function touchAction($arg)
   {
     return array(
-      'title' => 'The Greek Campus',
+      'title' => 'Welcome',
       'reservations' => $currentReservations
     );
   }
@@ -161,7 +161,11 @@ class Controller
 
   public function importAction()
   {
-    global $resourceByName;
+    global $resources;
+    $resourceByName = array();
+    foreach ($resources['resources'] as $resource) {
+      $resourceByName[$resource['resourceId']] = $resource['name'];
+    }
 
     $row = 1;
     $postReservations = [];

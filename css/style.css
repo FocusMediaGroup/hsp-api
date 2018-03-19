@@ -8,7 +8,7 @@ body, h4, h2, p {
 }
 
 body {
-  /*background-image: url(/api/images/Wallpaper.jpg);*/
+  /*background-image: url(/api/images/frame.png);*/
   /*background-repeat: no-repeat;*/
   background-color: #363435;
   /*background-size: cover;*/
@@ -37,12 +37,27 @@ header {
   position: absolute;
   width: 100%;
 }
-.footer {
+header h1.engraved { 
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0px 1px 0px rgba(255,255,255,.5); /* 50% white from bottom */
+  width: 400px;
+  display: inline-block;
+}
+
+footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px; /* Set the fixed height of the footer here */
+  height: 150px; /* Set the fixed height of the footer here */
   /*line-height: 60px;  Vertically center the text there */
+}
+footer h1.engraved { 
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0px 1px 0px rgba(255,255,255,.5); /* 50% white from bottom */
 }
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -385,12 +400,12 @@ button{
 
 .fs-time{
   color: #FEF013;
-  font-size: 75px;
+  font-size: 7em;
   font-weight: 800;
 }
 #fssec{
   color: #FFF;
-  font-size: 25px;
+  font-size: 0.5em;
   vertical-align: top;
   position: relative;
   top: 20px;
@@ -401,6 +416,8 @@ button{
   top: -25px;
   left: 1%;
   color: #FFF;
+  font-size: 1.7em;
+
 }
 
 
@@ -648,14 +665,6 @@ button{
 #content{
 
 }
-header .engraved { 
-  color: #000;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-shadow: 0px 1px 0px rgba(255,255,255,.5); /* 50% white from bottom */
-  width: calc(100% - 500px);
-  display: inline-block;
-}
 
 /** Loader **/
 .loader {
@@ -695,11 +704,10 @@ header .engraved {
 
 .mat-label {
   display: block;
-  font-size: 2em;
+  font-size: 4em;
   transform: translateY(100px);
   color: #e2e2e2;
   transition: all 0.5s;
-  text-align: left;
 }
 
 .mat-input.ui-widget-content {
@@ -811,4 +819,12 @@ header .engraved {
 }
 .ui-menu-item-wrapper{
   font-size: 3em;
+}
+
+.page-icon{
+  font-size: 2em;position: fixed;
+  left: 50%;
+  bottom: 100px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
 }

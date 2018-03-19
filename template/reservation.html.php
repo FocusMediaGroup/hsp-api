@@ -18,7 +18,7 @@
       <button class="btn"><strong>Room</strong>
         <?php print_r($reservation['resourceName']); ?></button>
       <button class="btn"><strong>Floor</strong>
-        Floor <?php //print_r($reservation['floorTitle']);     ?></button>
+        Floor <?php print_r($reservation['floorTitle']);     ?></button>
     </div>
     <div class="pull-right">
       <?php //print_r($reservation['arrowDirection']); ?>

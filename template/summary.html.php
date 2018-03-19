@@ -11,8 +11,7 @@ include_once 'header.html.php';
 </div>
 <!-- /.container-fluid -->
 <?php if ($config['touch']) { ?>
-  <div class="text-center" 
-       style="font-size: 2em;position: absolute; bottom: 10%; left: 20%;">
+  <div class="text-center page-icon">
     <a href="touch"><span class="glyphicon glyphicon-search text-white" 
                           ></span></a>
   </div>

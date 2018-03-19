@@ -1,6 +1,6 @@
 <header>
   <div class="container-fluid">
-    <img src='<?php echo $config['logo']; ?>' height="100px" class="pull-left"/>
+    <img src='<?php echo $config['logo']; ?>' height="150px" class="pull-left"/>
     <h1 class="text-center engraved"><?php print_r($title); ?></h1>
 
     <div class="pull-right">

@@ -27,7 +27,7 @@ include_once 'header.html.php';
 <!-- Search-->
 <div id="search" class="text-center">
   <div class="mat-div">
-    <label for="search-me" class="mat-label">Search me</label>
+    <label for="search-me" class="mat-label">Tap here to Search</label>
     <input type="text" class="mat-input" id="search-me">
   </div>
   <img src="images/Hand-Touch-icon-white.png" alt=""
@@ -36,8 +36,7 @@ include_once 'header.html.php';
        style="opacity: 1;"
        />
 </div>
-<div class="text-center" 
-     style="font-size: 2em;position: absolute; bottom: 10%; left: 20%;">
+<div class="text-center page-icon">
   <a href="touch"><span class="glyphicon glyphicon-refresh text-white" 
                         ></span></a>
 </div>

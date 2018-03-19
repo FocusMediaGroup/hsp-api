@@ -25,9 +25,13 @@ include_once 'header.html.php';
     <?php include_once 'roomAjax.html.php'; ?>
   </div>  
 </div>
-<?php if($config['touch']) { ?>
-  <div class="text-center" 
-       style="font-size: 2em;position: absolute; bottom: 10%; left: 20%;">
+<?php if ($config['touch']) { ?>
+  <div class="text-center page-icon" 
+       style="font-size: 2em;position: fixed;
+       left: 50%;
+       bottom: 20px;
+       transform: translate(-50%, -50%);
+       margin: 0 auto;">
     <a href="touch"><span class="glyphicon glyphicon-home text-white" 
                           ></span></a>
   </div>

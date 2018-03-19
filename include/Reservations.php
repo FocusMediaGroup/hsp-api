@@ -83,6 +83,7 @@ class Reservations
       $reservation['end'] = $endDate->format(TIME_FORMAT);
       $reservation['startTimestamp'] = $startDate->getTimestamp();
       $reservation['endTimestamp'] = $endDate->getTimestamp();
+      $reservation['floor'] = $resources['resources'][$reservation['resourceId']];
       $reservations['reservations'][] = $reservation;
       $arraySearch = array_search($reservation['title'], $reservations['title']);
       if ((false === $arraySearch) || !count($reservations['title'])) {
@@ -110,8 +111,8 @@ class Reservations
       foreach ($resource['customAttributes'] as $customAttribute) {
         $resources['resources'][$key][$customAttribute['id']] = $customAttribute['value'];
       }
-//      $resources['resources'][$resource['resourceId']] = $resource;
-//      unset($resources['resources'][$key]);
+      $resources['resources'][$resource['resourceId']] = $resource;
+      unset($resources['resources'][$key]);
     }
     //Clean up before save
     $resourcesFile = fopen("data/resources.json", "w") or die("Unable to open file!");
