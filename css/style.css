@@ -45,7 +45,7 @@ header h1.engraved {
   font-weight: bold;
   text-transform: uppercase;
   text-shadow: 0px 1px 0px rgba(255,255,255,.5); /* 50% white from bottom */
-  width: 400px;
+  width: 380px;
   display: inline-block;
 }
 

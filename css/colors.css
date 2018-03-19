@@ -30,29 +30,35 @@
 
 .jameel,
 .jameel:hover {
-  color: #fff;
+  /*color: #fff;*/
   background: #b7f91d;
 }
 
 .falaki,
 .falaki:hover {
-  color: #fff;
+  /*color: #fff;*/
   background: #1ed4fb;
 }
 
 .wallace,
 .wallace:hover {
-  color: #fff;
+  /*color: #fff;*/
   background: #f52384;
 }
 
 .greek,
 .greek:hover {
-  color: #fff;
+  /*color: #fff;*/
   background: #f8c126;
 }
 .library,
 .library:hover {
-  color: #fff;
+  /*color: #fff;*/
   background: #ff6821;
+}
+
+.left-col .btn strong{
+  font-weight: bolder;
+  font-size: 2em;
+  color: #363435;
 }
