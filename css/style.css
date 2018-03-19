@@ -501,7 +501,7 @@ button{
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  max-width: 98px;
+  max-width: 118px;
 }
 .right-col {
   border-radius: 0 4px 4px 0;
