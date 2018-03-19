@@ -348,12 +348,17 @@ div#keyboard{
 /** touch results **/
 #results {
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 50%;
   margin-left: -37.5%;
   width: 75%;
-  height: 10%;
   z-index: 100;
+}
+.ui-autocomplete {
+  max-height: 500px;
+  overflow-y: auto;
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
 }
 #custom-search-input{
   padding: 3px;

@@ -7,27 +7,6 @@ function init() {
     event.preventDefault();
   }, false);
   attachButtons();
-//  function clickIE() {
-//    if (document.all) {  //document.all specific to Internet Explorer  
-//      return false;
-//    }
-//  }
-//  function clickAll(e) {
-//    if (document.layers || (document.getElementById && !document.all)) {  //document.layers specific to Netscape
-//      if (e.which == 2 || e.which == 3) {
-//        return false;
-//      }
-//    }
-//  }
-//  if (document.layers) {
-//    document.captureEvents(Event.MOUSEDOWN);
-//    document.onmousedown = clickAll;
-//  } else {
-//    document.onmouseup = clickAll;
-//    document.oncontextmenu = clickIE;
-//  }
-//
-//  document.oncontextmenu = new Function("return false");
 }
 
 function attachButtons() {

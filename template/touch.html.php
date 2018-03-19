@@ -12,9 +12,9 @@ include_once 'header.html.php';
     left: 50%;
     margin-left: -37.5%;
     width: 75%;
-    height: 10%;
     z-index: 100;
   }
+ 
 </style>
 <div class="container-fluid content">
   <!-- Page Content -->
