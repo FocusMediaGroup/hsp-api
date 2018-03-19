@@ -13,6 +13,7 @@ include_once 'header.html.php';
     margin-left: -37.5%;
     width: 75%;
     z-index: 100;
+    max-height: 60%;
   }
  
 </style>
