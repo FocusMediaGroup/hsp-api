@@ -40,6 +40,12 @@ class Reservations
 
   /**
    *
+   * @var \DateTime
+   */
+  private $tomorrow;
+
+  /**
+   *
    * @var string
    */
   private $floorTitle;
@@ -52,6 +58,8 @@ class Reservations
     $this->apiClient->authenticate(true);
     $this->timezone = new \DateTimeZone(YOURTIMEZONE);
     $this->now = new \DateTime();
+    $this->tomorrow = new \DateTime("tomorrow");
+    $this->tomorrow->setTime(00, 00, 00);
     $this->reservations = $reservations;
   }
 
@@ -204,8 +212,7 @@ class Reservations
         if (1 == $reservation['scheduleId']) {
           $reservationStart = new \DateTime($reservation['startDate']);
           $reservationEnd = new \DateTime($reservation['endDate']);
-          $days = $reservationStart->diff($this->now);
-          if (0 == $days->days) {
+          if ($reservationStart < $this->tomorrow) {
             if (
                 ($this->now <= $reservationStart) ||
                 ($this->now <= $reservationEnd)
@@ -242,7 +249,7 @@ class Reservations
       krsort($reservationByFloorNo);
       foreach ($reservationByFloorNo as $floorNo => $this->reservations) {
         foreach ($this->reservations as $reservation) {
-          $currentReservations[] = $reservation;
+          $currentReservations[$reservation['referenceNumber']] = $reservation;
         }
       }
     }

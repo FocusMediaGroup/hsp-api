@@ -31,7 +31,7 @@ class Controller
     $htmlTitle = "Summary";
     return array(
       'htmlTitle' => 'Summary',
-      'title' => 'Today\'s Events',
+      'title' => 'Events',
       'reservations' => $Reservations->getCurrentReservations()
     );
   }
