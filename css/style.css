@@ -828,3 +828,14 @@ button{
   transform: translate(-50%, -50%);
   margin: 0 auto;
 }
+
+@keyframes glowing {
+  /*0% { opacity: 0; }*/
+  40% { opacity: 0.4; }
+  60% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.button-glow {
+  animation: glowing 3000ms infinite;
+}

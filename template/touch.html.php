@@ -32,8 +32,8 @@ include_once 'header.html.php';
   </div>
   <img src="images/Hand-Touch-icon-white.png" alt=""
        id="touch-icon"
+       class="button-glow"
        width="100"
-       style="opacity: 1;"
        />
 </div>
 <div class="text-center page-icon">
