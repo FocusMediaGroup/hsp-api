@@ -10,3 +10,49 @@
 .bg-green {background-color: #5BA47A;}
 .bg-blue {background-color: #3986BE;}
 .bg-grey {background-color: #363435;}
+
+.blue, 
+.blue:hover { 
+  background: #01BCFF; 
+  color: #fff;
+}
+.green,
+.green:hover { 
+  background: #1bb556; 
+  color: #fff;
+}
+
+.red,
+.red:hover { 
+  background: #ff4f0f; 
+  color: #fff;
+}
+
+.jameel,
+.jameel:hover {
+  color: #fff;
+  background: #b7f91d;
+}
+
+.falaki,
+.falaki:hover {
+  color: #fff;
+  background: #1ed4fb;
+}
+
+.wallace,
+.wallace:hover {
+  color: #fff;
+  background: #f52384;
+}
+
+.greek,
+.greek:hover {
+  color: #fff;
+  background: #f8c126;
+}
+.library,
+.library:hover {
+  color: #fff;
+  background: #ff6821;
+}

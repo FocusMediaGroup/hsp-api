@@ -1,7 +1,9 @@
 <div class="event-container col-md-10 col-md-push-1" data-id="<?php print_r($reservation['referenceNumber']); ?>">
   <div class="left-col">
-    <button class="btn red btn-block"><strong>Jameel</strong>
-      <?php //print_r($reservation['floorTitle']);        ?>
+    <button class="btn <?php print_r(strtolower($reservation['building'])); ?> btn-block"><strong>
+        <!--Jameel-->
+        <?php print_r($reservation['building']); ?>
+      </strong>
     </button>
   </div>
   <div id="box-button" class="box middle-col">
@@ -18,7 +20,7 @@
       <button class="btn"><strong>Room</strong>
         <?php print_r($reservation['resourceName']); ?></button>
       <button class="btn"><strong>Floor</strong>
-        Floor <?php print_r($reservation['floorTitle']);     ?></button>
+        <?php print_r($reservation['floorTitle']); ?></button>
     </div>
     <div class="pull-right">
       <?php //print_r($reservation['arrowDirection']); ?>

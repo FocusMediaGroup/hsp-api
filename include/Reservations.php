@@ -83,7 +83,8 @@ class Reservations
       $reservation['end'] = $endDate->format(TIME_FORMAT);
       $reservation['startTimestamp'] = $startDate->getTimestamp();
       $reservation['endTimestamp'] = $endDate->getTimestamp();
-      $reservation['floor'] = $resources['resources'][$reservation['resourceId']];
+      $reservation['floor'] = $resources['resources'][$reservation['resourceId']]['floor'];
+      $reservation['building'] = $resources['resources'][$reservation['resourceId']]['building'];
       $reservations['reservations'][] = $reservation;
       $arraySearch = array_search($reservation['title'], $reservations['title']);
       if ((false === $arraySearch) || !count($reservations['title'])) {
@@ -106,11 +107,27 @@ class Reservations
 
   function fetchResources()
   {
+    global $buildings;
     $resources = $this->apiClient->getResource();
     foreach ($resources['resources'] as $key => $resource) {
       foreach ($resource['customAttributes'] as $customAttribute) {
         $resources['resources'][$key][$customAttribute['id']] = $customAttribute['value'];
       }
+      foreach ($resource['customAttributes'] as $customAttribute) {
+        switch ($customAttribute['id']) {
+          case 3:
+            $resources['resources'][$key]['floorTitle'] = $customAttribute['value'];
+            break;
+          case 5:
+            $resources['resources'][$key]['floorNo'] = $customAttribute['value'];
+            break;
+          case 22:
+            $resources['resources'][$key]['arrowDirection'] = $customAttribute['value'];
+            break;
+        }
+      }
+      $resources['resources'][$key]["floor"] = $resources['resources'][$key]['customAttributes'][3];
+      $resources['resources'][$key]["building"] = $buildings[$resources['resources'][$key]['groupIds'][0]];
       $resources['resources'][$resource['resourceId']] = $resource;
       unset($resources['resources'][$key]);
     }
@@ -177,6 +194,7 @@ class Reservations
 
   function getCurrentReservations()
   {
+    global $buildings;
     $currentReservations = null;
     $reservationByFloorNo = null;
     if (is_array($this->reservations['reservations'])) {
@@ -212,6 +230,7 @@ class Reservations
                     break;
                 }
               }
+              $reservation['building'] = $buildings[$resource['groupIds'][0]];
               $reservationByFloorNo[$reservation['floorNo']][] = $reservation;
 //          $currentReservations[] = $reservation;
             }

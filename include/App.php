@@ -17,7 +17,7 @@ class App
    * @var Array 
    */
   private $request;
- 
+
   /**
    * 
    */
@@ -98,6 +98,10 @@ class App
           $this->request['arg'][$key] = $value;
         } else {
           $this->request['arg'][] = $key;
+        }
+        if ("touch" == $key) {
+          global $config;
+          $config['touch'] = $value;
         }
       }
     }
