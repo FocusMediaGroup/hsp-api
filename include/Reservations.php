@@ -70,7 +70,7 @@ class Reservations
   {
     $getReservations = $this->apiClient->getReservation();
     foreach ($getReservations['reservations'] as $key => $reservation) {
-      if (1 == $reservation['scheduleId'] || 3 == $reservation['scheduleId']) {
+      if (1 == $reservation['scheduleId'] || 2 == $reservation['scheduleId']) {
         $res = $this->apiClient->getReservation($reservation['referenceNumber']);
         if (count($res['attachments']) > 0) {
           $reservation['image'] = $this->fixImageUrl($res['attachments'][0]['url']);
