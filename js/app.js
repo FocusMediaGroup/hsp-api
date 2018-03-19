@@ -121,12 +121,12 @@ $(function () {
   $('#search-me').keyboard({
     usePreview: false,
     autoAccept: true,
-    autoAccept: true,
     accepted: search
   })
           .autocomplete({
             source: ReservationTitles,
             appendTo: "#results",
+            autoFocus: true,
             select: function (event, ui) {
               $(this).data().keyboard.accept();
             },
