@@ -480,14 +480,14 @@ button{
 .right-col {
   position: relative;
   height: 100px;
-  width: 100px;
+  width: 120px;
   background: #fff;
   border: 1px solid #fff;
   top: 15px;
   vertical-align: middle;
 }
 .middle-col{
-  width: calc(100% - 202px);
+  width: calc(100% - 242px);
 }
 
 .left-col {
