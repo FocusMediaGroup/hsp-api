@@ -183,7 +183,7 @@ class Controller
         if ($reservation['title']) {
           //lets rock and roll
           $reservation['startDateTime'] = "2018-03-19T00:00:00+0200";
-          $reservation['endDateTime'] = "2018-04-19T00:00:00+0200";
+          $reservation['endDateTime'] = "2018-12-31T00:00:00+0200";
           $postReservations[] = $reservation;
         }
       }

@@ -70,25 +70,27 @@ class Reservations
   {
     $getReservations = $this->apiClient->getReservation();
     foreach ($getReservations['reservations'] as $key => $reservation) {
-      $res = $this->apiClient->getReservation($reservation['referenceNumber']);
-      if (count($res['attachments']) > 0) {
-        $reservation['image'] = $this->fixImageUrl($res['attachments'][0]['url']);
-      }
-      $reservation['attachments'] = $res['attachments'];
-      $startDate = new \DateTime($reservation['startDate']);
-      $startDate->setTimezone($this->timezone);
-      $endDate = new \DateTime($reservation['endDate']);
-      $endDate->setTimezone($this->timezone);
-      $reservation['start'] = $startDate->format(TIME_FORMAT);
-      $reservation['end'] = $endDate->format(TIME_FORMAT);
-      $reservation['startTimestamp'] = $startDate->getTimestamp();
-      $reservation['endTimestamp'] = $endDate->getTimestamp();
-      $reservation['floor'] = $resources['resources'][$reservation['resourceId']]['floor'];
-      $reservation['building'] = $resources['resources'][$reservation['resourceId']]['building'];
-      $reservations['reservations'][] = $reservation;
-      $arraySearch = array_search($reservation['title'], $reservations['title']);
-      if ((false === $arraySearch) || !count($reservations['title'])) {
-        $reservations['title'][] = $reservation['title'];
+      if (1 == $reservation['scheduleId'] || 3 == $reservation['scheduleId']) {
+        $res = $this->apiClient->getReservation($reservation['referenceNumber']);
+        if (count($res['attachments']) > 0) {
+          $reservation['image'] = $this->fixImageUrl($res['attachments'][0]['url']);
+        }
+        $reservation['attachments'] = $res['attachments'];
+        $startDate = new \DateTime($reservation['startDate']);
+        $startDate->setTimezone($this->timezone);
+        $endDate = new \DateTime($reservation['endDate']);
+        $endDate->setTimezone($this->timezone);
+        $reservation['start'] = $startDate->format(TIME_FORMAT);
+        $reservation['end'] = $endDate->format(TIME_FORMAT);
+        $reservation['startTimestamp'] = $startDate->getTimestamp();
+        $reservation['endTimestamp'] = $endDate->getTimestamp();
+        $reservation['floor'] = $resources['resources'][$reservation['resourceId']]['floor'];
+        $reservation['building'] = $resources['resources'][$reservation['resourceId']]['building'];
+        $reservations['reservations'][] = $reservation;
+        $arraySearch = array_search($reservation['title'], $reservations['title']);
+        if ((false === $arraySearch) || !count($reservations['title'])) {
+          $reservations['title'][] = $reservation['title'];
+        }
       }
     }
     //Clean up before save
