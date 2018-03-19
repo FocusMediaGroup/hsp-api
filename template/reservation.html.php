@@ -7,7 +7,7 @@
     </button>
   </div>
   <div id="box-button" class="box middle-col">
-    <a href="room?<?php print_r($reservation['resourceName']); ?>">
+<!--    <a href="room?<?php print_r($reservation['resourceName']); ?>">-->
       <h2>
         <?php print_r($reservation['title']); ?>
         <small class="pull-right">
@@ -15,7 +15,7 @@
           <?php print_r($reservation['end']); ?>
         </small>
       </h2>
-    </a>
+    <!--</a>-->
     <div class="colored-button pull-left">
       <button class="btn"><strong>Room</strong>
         <?php print_r($reservation['resourceName']); ?></button>
