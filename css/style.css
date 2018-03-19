@@ -751,7 +751,7 @@ button{
 }
 
 .is-active .mat-label {
-  color: #000;
+  color: #fff;
 }
 
 .is-completed .mat-label {
