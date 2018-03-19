@@ -107,16 +107,16 @@ $(function () {
   loadReservations();
 // Draw Reservations 
   if (touch) {
-    var drawInterval = setInterval(drawSearch, 10000); // 5 mins
+    var drawInterval = setInterval(drawSearch, 10000); // 10 secs
   } else {
     var drawInterval = setInterval(drawPage, 300000); // 5 mins
 //  var drawInterval = setInterval(drawPage, 5000); // 5 secs
   }
 
   //Iterater over reservations
-  var activeInterval = setInterval(loopReservations(), 5000); // 5 secs
+//  var activeInterval = setInterval(loopReservations(), 5000); // 5 secs
 
-  var cron = setInterval(cronAction(), 5000); // 5 secs
+  var cron = setInterval(cronAction(), 300000); // 5 mins
 
   $('#search-me').keyboard({
     usePreview: false,
