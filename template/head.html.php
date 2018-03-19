@@ -7,6 +7,7 @@
     <meta name="viewport" 
           content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="">
+    <meta http-equiv="cache-control" content="max-age=0" />
     <meta name="author" content="">
     <title><?php echo $title; ?></title>
     <!-- Bootstrap Core CSS -->
