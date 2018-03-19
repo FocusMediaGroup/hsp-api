@@ -247,10 +247,63 @@ class Reservations
     return $currentReservations;
   }
 
+  function getAllReservations()
+  {
+    global $buildings;
+    $allReservations = null;
+    $reservationByFloorNo = null;
+    if (is_array($this->reservations['reservations'])) {
+      foreach ($this->reservations['reservations'] as $reservation) {
+        $reservationStart = new \DateTime($reservation['startDate']);
+        $reservationEnd = new \DateTime($reservation['endDate']);
+        $days = $reservationStart->diff($this->now);
+        if (0 == $days->days) {
+          if (
+              ($this->now <= $reservationStart) ||
+              ($this->now <= $reservationEnd)
+          ) {
+
+            $reservation['startDate'] = new \DateTime($reservation['startDate']);
+            $reservation['startDate']->setTimezone($this->timezone);
+            $reservation['endDate'] = new \DateTime($reservation['endDate']);
+            $reservation['endDate']->setTimezone($this->timezone);
+
+            $resource = $this->getApiClient()->getResource(intval($reservation['resourceId']));
+            $arrowDirection = NULL;
+
+            foreach ($resource['customAttributes'] as $customAttribute) {
+              switch ($customAttribute['id']) {
+                case 3:
+                  $reservation['floorTitle'] = $customAttribute['value'];
+                  break;
+                case 5:
+                  $reservation['floorNo'] = $customAttribute['value'];
+                  break;
+                case 22:
+                  $reservation['arrowDirection'] = $customAttribute['value'];
+                  break;
+              }
+            }
+            $reservation['building'] = $buildings[$resource['groupIds'][0]];
+            $reservationByFloorNo[$reservation['floorNo']][] = $reservation;
+//          $currentReservations[] = $reservation;
+          }
+        }
+      }
+      krsort($reservationByFloorNo);
+      foreach ($reservationByFloorNo as $floorNo => $this->reservations) {
+        foreach ($this->reservations as $reservation) {
+          $allReservations[] = $reservation;
+        }
+      }
+    }
+    return $allReservations;
+  }
+
   function search($search)
   {
     $reservations = [];
-    $current = $this->getCurrentReservations();
+    $current = $this->getAllReservations();
     foreach ($current as $reservation) {
       if (strtolower($search) == strtolower($reservation['title']))
         $reservations[] = $reservation;
