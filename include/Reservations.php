@@ -266,37 +266,56 @@ class Reservations
         $reservationStart = new \DateTime($reservation['startDate']);
         $reservationEnd = new \DateTime($reservation['endDate']);
         $days = $reservationStart->diff($this->now);
-        if (0 == $days->days) {
-          if (
-              ($this->now <= $reservationStart) ||
-              ($this->now <= $reservationEnd)
-          ) {
+        if (1 == $reservation['scheduleId']) {
+          if ($reservationStart < $this->tomorrow) {
+            if (
+                ($this->now <= $reservationStart) ||
+                ($this->now <= $reservationEnd)
+            ) {
 
-            $reservation['startDate'] = new \DateTime($reservation['startDate']);
-            $reservation['startDate']->setTimezone($this->timezone);
-            $reservation['endDate'] = new \DateTime($reservation['endDate']);
-            $reservation['endDate']->setTimezone($this->timezone);
+              $reservation['startDate'] = new \DateTime($reservation['startDate']);
+              $reservation['startDate']->setTimezone($this->timezone);
+              $reservation['endDate'] = new \DateTime($reservation['endDate']);
+              $reservation['endDate']->setTimezone($this->timezone);
 
-            $resource = $this->getApiClient()->getResource(intval($reservation['resourceId']));
-            $arrowDirection = NULL;
+              $resource = $this->getApiClient()->getResource(intval($reservation['resourceId']));
+              $arrowDirection = NULL;
 
-            foreach ($resource['customAttributes'] as $customAttribute) {
-              switch ($customAttribute['id']) {
-                case 3:
-                  $reservation['floorTitle'] = $customAttribute['value'];
-                  break;
-                case 5:
-                  $reservation['floorNo'] = $customAttribute['value'];
-                  break;
-                case 22:
-                  $reservation['arrowDirection'] = $customAttribute['value'];
-                  break;
+              foreach ($resource['customAttributes'] as $customAttribute) {
+                switch ($customAttribute['id']) {
+                  case 3:
+                    $reservation['floorTitle'] = $customAttribute['value'];
+                    break;
+                  case 5:
+                    $reservation['floorNo'] = $customAttribute['value'];
+                    break;
+                  case 22:
+                    $reservation['arrowDirection'] = $customAttribute['value'];
+                    break;
+                }
               }
-            }
-            $reservation['building'] = $buildings[$resource['groupIds'][0]];
-            $reservationByFloorNo[$reservation['floorNo']][] = $reservation;
+              $reservation['building'] = $buildings[$resource['groupIds'][0]];
+              $reservationByFloorNo[$reservation['floorNo']][] = $reservation;
 //          $currentReservations[] = $reservation;
+            }
           }
+        } elseif (2 == $reservation['scheduleId']) {
+          $resource = $this->getApiClient()->getResource(intval($reservation['resourceId']));
+          foreach ($resource['customAttributes'] as $customAttribute) {
+            switch ($customAttribute['id']) {
+              case 3:
+                $reservation['floorTitle'] = $customAttribute['value'];
+                break;
+              case 5:
+                $reservation['floorNo'] = $customAttribute['value'];
+                break;
+              case 22:
+                $reservation['arrowDirection'] = $customAttribute['value'];
+                break;
+            }
+          }
+          $reservation['building'] = $buildings[$resource['groupIds'][0]];
+          $reservationByFloorNo[$reservation['floorNo']][] = $reservation;
         }
       }
       krsort($reservationByFloorNo);
@@ -312,8 +331,8 @@ class Reservations
   function search($search)
   {
     $reservations = [];
-    $current = $this->getAllReservations();
-    foreach ($current as $reservation) {
+    $allReservations = $this->getAllReservations();
+    foreach ($allReservations as $reservation) {
       if (strtolower($search) == strtolower($reservation['title']))
         $reservations[] = $reservation;
     }
