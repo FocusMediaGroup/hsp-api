@@ -12,8 +12,7 @@ include_once 'header.html.php';
 <!-- /.container-fluid -->
 <?php if ($config['touch']) { ?>
   <div class="text-center page-icon">
-    <a href="touch"><span class="glyphicon glyphicon-search text-white" 
-                          ></span></a>
+    <a href="touch"><span class="glyphicon glyphicon-search text-white"></span></a>
   </div>
 <?php } ?>
 <?php include_once 'footer.html.php'; ?>

@@ -36,11 +36,15 @@ function loadReservations() {
   var $data = $.ajax({
     url: "data/reservations.json"
   }).done(function (data) {
-    for (var key in data.reservations) {
-      Reservations[key] = data.reservations[key];
+    if (Array === data.reservations.constructor) {
+      for (var key in data.reservations) {
+        Reservations[key] = data.reservations[key];
+      }
     }
-    for (var tkey in data.title) {
-      ReservationTitles[tkey] = data.title[tkey];
+    if (Array === data.title.constructor) {
+      for (var tkey in data.title) {
+        ReservationTitles[tkey] = data.title[tkey];
+      }
     }
   });
 }
