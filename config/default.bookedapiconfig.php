@@ -12,6 +12,8 @@
  * 
  *
  */
+const BOOKEDAPIUSER = 'api';
+const BOOKEDAPIPASSWORD = 'api$api';
 //Change these to match your server and time zone.
 const YOURTIMEZONE = 'Africa/Cairo';
 const BOOKEDWEBSERVICESURL = 'http://dev1.fmgegypt.net/hsp/Web/Services/index.php';

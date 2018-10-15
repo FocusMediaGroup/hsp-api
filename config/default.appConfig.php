@@ -6,4 +6,5 @@
 $config = array(
   'title' => 'Touch screen default title',
   'logo' => 'images/logo.png',
+  'touch' => false
 );
