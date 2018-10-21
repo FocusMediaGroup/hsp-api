@@ -32,6 +32,7 @@ $resources = json_decode($strResources, true); // decode the JSON into an associ
 $strReservations = file_get_contents('data/reservations.json');
 $reservations = json_decode($strReservations, true); // decode the JSON into an associative array
 
+// TODO: move this to data or config, preferably config
 $buildings = array(
   1 => "Jameel",
   2 => "Falaki",
