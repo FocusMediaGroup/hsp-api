@@ -14,15 +14,19 @@ class Controller
 
   /**
    * Default action
+   * 
+   * @param array $arg arguments to the request
    */
-  public function defaultAction()
+  public function defaultAction($arg)
   {
     var_dump("I am default");
   }
 
   /**
+   * Controller function for Summary request
+   * path /summary
    * 
-   * @param array $arg
+   * @param array $arg arguments to the request
    * @return array
    */
   public function summaryAction($arg)
@@ -40,9 +44,10 @@ class Controller
    * Controller function for Summary Ajax request
    * path /summaryAjax
    * 
+   * @param array $arg arguments to the request
    * @return array
    */
-  public function summaryAjaxAction()
+  public function summaryAjaxAction($arg)
   {
     $Reservations = new Reservations();
     return array(
@@ -54,7 +59,7 @@ class Controller
    * Controller function for Search Ajax request
    * path /searchAjax
    * 
-   * @param array $arg
+   * @param array $arg arguments to the request
    * @return array
    */
   public function searchAjaxAction($arg)
@@ -71,9 +76,10 @@ class Controller
    * Controller function for Touch Request
    * path /touch
    * 
+   * @param array $arg arguments to the request
    * @return array
    */
-  public function touchAction()
+  public function touchAction($arg)
   {
     return array(
       'title' => 'Welcome',
@@ -89,7 +95,7 @@ class Controller
    * this should be passed through the URL query parameter 'floor'
    * eg. /floor?floor=1 will return reservations of the 1st floor
    *
-   * @param array $arg
+   * @param array $arg arguments to the request
    * @return array
    */
   public function floorAction($arg)
@@ -119,7 +125,7 @@ class Controller
    * this should be passed the the URL query with the room name as the parameter name
    * eg. /room?Room_Name will return reservations for Room_Name
    * 
-   * @param array $arg
+   * @param array $arg arguments to the request
    * @return array
    */
   public function roomAction($arg)
@@ -138,12 +144,12 @@ class Controller
    * Controller function for Room Ajax Request
    * path /roomAjax
    * 
-   *  * $arg[0] should hold the name of the room being requested
+   * $arg[0] should hold the name of the room being requested
    * this should be passed the the URL query with the room name as the parameter name
    * eg. /roomAjax?Room_Name will return reservations for Room_Name
    * 
-   * @param type $arg
-   * @return type
+   * @param array $arg arguments to the request
+   * @return array
    */
   public function roomAjaxAction($arg)
   {
@@ -159,8 +165,10 @@ class Controller
 
   /**
    * Controller function for Cron request
+   * 
+   * @param array $arg arguments to the request
    */
-  public function cronAction()
+  public function cronAction($arg)
   {
     $Reservations = new Reservations();
     $Reservations->fetchResources();
@@ -172,10 +180,11 @@ class Controller
    * Controller function for Import request
    * path /import
    * 
-   * @global type $resources
+   * @global array $resources
+   * @param array $arg arguments to the request
    * @throws Exception
    */
-  public function importAction()
+  public function importAction($arg)
   {
     global $resources;
     $resourceByName = array();
@@ -210,10 +219,12 @@ class Controller
   }
 
   /**
-   * This function parses the route it's given and attempts to run it's respective controller function if exists
+   * This function passes the route and request parameters it's given and 
+   * attempts to run it's respective controller function if exists
+   * 
    * 
    * @param string $route Route from request
-   * @param array $arg arguments to the route
+   * @param array $arg arguments to the request
    * @return array|string Returns an array from the relative controller function
    */
   public function run($route, $arg)
