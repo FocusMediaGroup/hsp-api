@@ -13,8 +13,9 @@ class App
 {
 
   /**
-   *
-   * @var Array 
+   * Holds request parameters
+   * 
+   * @var Array $request
    */
   private $request;
 
@@ -29,7 +30,7 @@ class App
 
   /**
    * 
-   * @return Array
+   * @return Array $request
    */
   public function getRequest()
   {
@@ -65,7 +66,8 @@ class App
   }
 
   /**
-   * 
+   * Backward compatibility with the initial system
+   * This function detects old paths and loads the appropriate template
    */
   public function backwardCompatibility()
   {
@@ -83,7 +85,8 @@ class App
   }
 
   /**
-   * 
+   * This function populates the request variable and stash the _GET variables
+   * in 'arg'
    */
   public function processRequest()
   {

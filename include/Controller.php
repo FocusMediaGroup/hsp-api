@@ -13,7 +13,7 @@ class Controller
 {
 
   /**
-   * 
+   * Default action
    */
   public function defaultAction()
   {
@@ -22,8 +22,8 @@ class Controller
 
   /**
    * 
-   * @param type $arg
-   * @return type
+   * @param array $arg
+   * @return array
    */
   public function summaryAction($arg)
   {
@@ -36,6 +36,12 @@ class Controller
     );
   }
 
+  /**
+   * Controller function for Summary Ajax request
+   * path /summaryAjax
+   * 
+   * @return array
+   */
   public function summaryAjaxAction()
   {
     $Reservations = new Reservations();
@@ -44,8 +50,16 @@ class Controller
     );
   }
 
+  /**
+   * Controller function for Search Ajax request
+   * path /searchAjax
+   * 
+   * @param array $arg
+   * @return array
+   */
   public function searchAjaxAction($arg)
   {
+    //TODO: Sanatize search 
 
     $Reservations = new Reservations();
     return array(
@@ -54,11 +68,12 @@ class Controller
   }
 
   /**
+   * Controller function for Touch Request
+   * path /touch
    * 
-   * @param type $arg
-   * @return type
+   * @return array
    */
-  public function touchAction($arg)
+  public function touchAction()
   {
     return array(
       'title' => 'Welcome',
@@ -67,9 +82,15 @@ class Controller
   }
 
   /**
+   * Controller function for Floor Request
+   * path /floor
    * 
-   * @param type $arg
-   * @return type
+   * $arg['floor'] should hold the value of the floor number being requested
+   * this should be passed through the URL query parameter 'floor'
+   * eg. /floor?floor=1 will return reservations of the 1st floor
+   *
+   * @param array $arg
+   * @return array
    */
   public function floorAction($arg)
   {
@@ -91,14 +112,19 @@ class Controller
   }
 
   /**
+   * Controller function for Room Request
+   * path /room
    * 
-   * @param type $arg
-   * @return type
+   * $arg[0] should hold the name of the room being requested
+   * this should be passed the the URL query with the room name as the parameter name
+   * eg. /room?Room_Name will return reservations for Room_Name
+   * 
+   * @param array $arg
+   * @return array
    */
   public function roomAction($arg)
   {
     $roomName = str_replace("_", " ", $arg[0]);
-    $title = $roomName;
     $Reservations = new Reservations();
 
     $currentReservations = $Reservations->getCurrentReservationByRoom($roomName);
@@ -109,6 +135,12 @@ class Controller
   }
 
   /**
+   * Controller function for Room Ajax Request
+   * path /roomAjax
+   * 
+   *  * $arg[0] should hold the name of the room being requested
+   * this should be passed the the URL query with the room name as the parameter name
+   * eg. /roomAjax?Room_Name will return reservations for Room_Name
    * 
    * @param type $arg
    * @return type
@@ -116,7 +148,6 @@ class Controller
   public function roomAjaxAction($arg)
   {
     $roomName = str_replace("_", " ", $arg[0]);
-    $title = $roomName;
     $Reservations = new Reservations();
 
     $currentReservations = $Reservations->getCurrentReservationByRoom($roomName);
@@ -127,7 +158,7 @@ class Controller
   }
 
   /**
-   * 
+   * Controller function for Cron request
    */
   public function cronAction()
   {
@@ -138,27 +169,12 @@ class Controller
   }
 
   /**
+   * Controller function for Import request
+   * path /import
    * 
-   * @param type $route
-   * @param type $arg
-   * @return type
+   * @global type $resources
+   * @throws Exception
    */
-  public function run($route, $arg)
-  {
-
-    $action = $route . "Action";
-    if (method_exists($this, $action)) {
-      return $this->$action($arg);
-    } else {
-      echo "No Action to run";
-    }
-  }
-
-  public function sampleAction()
-  {
-    return array('title' => 'Sample');
-  }
-
   public function importAction()
   {
     global $resources;
@@ -191,6 +207,24 @@ class Controller
     }
     $Reservations = new Reservations();
     $Reservations->postResrvations($postReservations);
+  }
+
+  /**
+   * This function parses the route it's given and attempts to run it's respective controller function if exists
+   * 
+   * @param string $route Route from request
+   * @param array $arg arguments to the route
+   * @return array|string Returns an array from the relative controller function
+   */
+  public function run($route, $arg)
+  {
+
+    $action = $route . "Action";
+    if (method_exists($this, $action)) {
+      return $this->$action($arg);
+    } else {
+      echo "No Action to run";
+    }
   }
 
 }
