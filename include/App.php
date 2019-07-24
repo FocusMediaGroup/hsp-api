@@ -93,6 +93,7 @@ class App
     $this->request['GET'] = $_GET;
     $this->request['POST'] = $_POST;
     $this->request['arg'] = array();
+    $this->request['path'] = null;
     foreach ($_GET as $key => $value) {
       if ("q" == $key) {
         $this->request['path'] = $value;

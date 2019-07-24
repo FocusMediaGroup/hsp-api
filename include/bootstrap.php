@@ -3,7 +3,10 @@
 /*
  * The following content was designed & implemented under AlexSeif.com
  */
+const DEBUG = true;
 
+require_once 'config/appConfig.php';
+require_once 'loader.php';
 
 if (DEBUG) {
   echo "<pre>";
@@ -14,8 +17,6 @@ if (DEBUG) {
   ob_start();
 }
 
-require_once 'config/appConfig.php';
-require_once 'loader.php';
 session_start();
 
 
@@ -23,13 +24,18 @@ session_start();
 $App = new App();
 $Controller = new Controller();
 if (!file_exists("data/reservations.json") || !file_exists("data/resources.json")) {
-  $Controller->cronAction();
+  $Controller->cronAction(null);
 }
-
-$strResources = file_get_contents('data/resources.json');
+$strResources = null;
+if (file_exists('data/resources.json')) {
+  $strResources = file_get_contents('data/resources.json');
+}
 $resources = json_decode($strResources, true); // decode the JSON into an associative array
 
-$strReservations = file_get_contents('data/reservations.json');
+$strReservations = null;
+if (file_exists('data/reservations.json')) {
+  $strReservations = file_get_contents('data/reservations.json');
+}
 $reservations = json_decode($strReservations, true); // decode the JSON into an associative array
 // TODO: move this to data or config, preferably config
 $buildings = array(
@@ -70,7 +76,7 @@ if (DEBUG) {
 if (file_exists($template)) {
   include_once $template;
 } else {
-  echo 'No such template';
+  die('No such template');
 }
 
 ob_flush();

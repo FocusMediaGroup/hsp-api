@@ -234,7 +234,7 @@ class Controller
     if (method_exists($this, $action)) {
       return $this->$action($arg);
     } else {
-      echo "No Action to run";
+      die("No Action to run");
     }
   }
 
