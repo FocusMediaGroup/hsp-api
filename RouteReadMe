@@ -1,0 +1,15 @@
+Floor
+route: /floor
+parameters: floor: the floor number
+example: /floor?floor=0
+
+Room
+route: /room
+parameters: room name
+example: /room?sakara
+
+Summary
+route: /summary
+
+Touch
+route: /touch

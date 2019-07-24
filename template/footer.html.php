@@ -1,40 +1,34 @@
-<footer class="footer">
+<footer>
   <div class="container-fluid">
-    <h5 class="time pull-left" id="time-part"><?php echo date(TIME_FORMAT); ?></h5>
-    <h5 class="pull-right" id="date-part"><?php echo date(DATE_FORMAT); ?></h5>
+    <h1 class="text-right engraved">
+      The GrEEK CAMPUS
+    </h1>
+    <h1 class="text-right engraved">
+      <small>Tech Valley in the heart of Cairo</small></h1>
   </div>
 </footer>
-<!-- jQuery Version 1.11.1 -->
-<script src="js/jquery.js"></script>
-<script src="js/jquery.fittext.js"></script>
-<script src="js/moment.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
 <script>
-  $(document).ready(function () {
-    var $colon = '';
-    var interval = setInterval(function () {
-      var momentNow = moment();
-      $('#date-part').html(momentNow.format('dddd, MMMM Do YYYY'));
-      $colon = (':' == $colon) ? ' ' : ':';
-      $('#time-part').html(momentNow.format('h') + $colon
-              + momentNow.format('mm a'));
-    }, 1000);
-
+  var touch = <?php print_r($config['touch'] ? "true" : "false"); ?>;
+</script>
 <?php
-if ($height > 15) {
+foreach ($scripts as $script) {
   ?>
-      $(".fit-text").fitText(1);
-  <?php
-} else {
-  ?>
-      $(".fit-text").fitText(2.4);
+  <script src="<?php echo $script; ?>"></script>
   <?php
 }
 ?>
-    $(".footer h5").fitText(1.4);
+<script>
+  $(".footer h5").fitText(1.4);
+</script>
+<script>
+  $('#basic-demo').click(function () {
+    Snarl.addNotification({
+      title: 'Custom Timeouts',
+      text: 'This notification has an 8000ms timeout!',
+      icon: '<span class="glyphicon glyphicon-time"></span>',
+      timeout: 8000
+    });
   });
-
 </script>
 </body>
 </html>
