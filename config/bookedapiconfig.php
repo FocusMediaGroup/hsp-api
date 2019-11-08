@@ -14,8 +14,9 @@
  */
 //Change these to match your server and time zone.
 const YOURTIMEZONE = 'Africa/Cairo';
-const BOOKEDWEBSERVICESURL = 'http://localhost/hsp/hsp/Web/Services/index.php';
-//const BOOKEDWEBSERVICESURL = 'http://hsp.local/hsp/Web/Services/index.php';
+const BOOKEDWEBSERVICESURL = 'http://localhost/hsp/Web/Services/index.php';
+const BOOKEDAPIUSER = 'api';
+const BOOKEDAPIPASSWORD = 'api$api';
 // Endpoints
 const AUTHENTICATE = '/Authentication/Authenticate';
 const GETRESOURCES = '/Resources/';
@@ -68,6 +69,6 @@ const SINGLE_LINE_TEXT = 1;
 const SELECT_LIST = 3;
 const MULTI_LINE_TEXT = 2;
 const CHECK_BOX = 4;
-const DEBUG = FALSE;
-const DATE_FORMAT = 'l, jS F Y';
-const TIME_FORMAT = 'g:i a';
+const DEBUG = TRUE;
+const DATE_FORMAT = 'l, F jS Y';
+const TIME_FORMAT = 'g:i';
