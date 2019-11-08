@@ -71,4 +71,4 @@ const MULTI_LINE_TEXT = 2;
 const CHECK_BOX = 4;
 const DEBUG = TRUE;
 const DATE_FORMAT = 'l, F jS Y';
-const TIME_FORMAT = 'g:i';
+const TIME_FORMAT = 'g:i a';

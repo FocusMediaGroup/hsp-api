@@ -13,7 +13,7 @@
  * 
  *   
  */
-require_once 'bookedapiconfig.php';
+require_once 'config/bookedapiconfig.php';
 
 class bookedAPIclient
 {
@@ -475,9 +475,6 @@ class bookedAPIclient
    */
   public function createCustomAttribute($attibuteObject)
   {
-
-
-
     if (!self::isAuthenticated()) {
       if (!$this->authenticate(true)) {
         return false;
