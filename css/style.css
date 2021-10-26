@@ -281,6 +281,12 @@ body {
     top: 15vh;
     height: 85vh;
   }
+  h1{
+    font-size: 3em;
+  }
+  .footer h5 {
+    font-size: 1.5em !important;
+  }
 }
 
 .table > tbody > tr > td div {
